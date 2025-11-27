@@ -31,7 +31,7 @@ export default function AnimatedTitle({ text }: { text: string }) {
   }, []);
 
   return (
-    <h1 ref={titleRef} className={`title cursor-hover`}>
+    <h1 ref={titleRef} className="title cursor-hover">
       {text.split("").map((char, i) => (
         <span key={i} className={styles.letter}>
           {char === " " ? "\u00A0" : char}
