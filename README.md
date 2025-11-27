@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# COMET'26 Landing Page
+
+A modern, futuristic landing page for COMET'26 - IIT Roorkee's celebration of Innovation.
+
+## Features
+
+- 🎨 Modern dark theme with gradient backgrounds
+- 🎭 Responsive design with mobile hamburger menu
+- 🎪 3D rotating shapes using React Three Fiber
+  - Hero section: Rotating ribbon sphere in emerald green
+  - About section: Rotating crystal shapes in electric blue
+- ⚡ Next.js 16 with App Router
+- 🎯 TypeScript for type safety
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Font Setup
 
-To learn more about Next.js, take a look at the following resources:
+The site is configured to use the **Acquire** font. To enable it:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Download the font from [FontSpace](https://www.fontspace.com/aquire-font-f43735)
+2. Place the font files in `src/app/fonts/`:
+   - `Aquire-Regular.otf`
+   - `Aquire-Bold.otf` (optional)
+3. Open `src/app/globals.css` and uncomment lines 16-34 (the @font-face blocks)
+4. Rebuild the site
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Without the font files, the site will use system fallback fonts.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+src/
+├── app/
+│   ├── fonts/          # Place Acquire font files here
+│   ├── globals.css     # Global styles and font setup
+│   ├── layout.tsx      # Root layout
+│   └── page.tsx        # Main page
+├── components/
+│   ├── Hero.tsx        # Hero section with title
+│   ├── Scene.tsx       # 3D ribbon sphere component
+│   ├── Navbar.tsx      # Navigation with mobile menu
+│   ├── About.tsx       # About section
+│   └── AboutShapes.tsx # 3D crystal shapes component
+└── utils/
+    └── webgl.ts        # WebGL detection utility
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Technologies
+
+- **Next.js 16** - React framework
+- **TypeScript** - Type safety
+- **React Three Fiber** - 3D rendering
+- **Three.js** - 3D graphics
+- **@react-three/drei** - Helper components for R3F
+
+## License
+
+This project is part of COMET'26 event by CDC, IIT Roorkee.

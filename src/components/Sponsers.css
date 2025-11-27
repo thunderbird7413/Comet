@@ -1,0 +1,148 @@
+/* ===== SECTION WRAPPER ===== */
+.outer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.work-section {
+  width: 100%;
+  padding: 70px 40px;
+  background: #000000;
+  font-family: 'Inter', sans-serif;
+  color: #e5e5e5;
+}
+
+/* ===== TITLE WITH GRADIENT UNDERLINE ===== */
+.work-title {
+  padding: 10px 28px;
+  border-radius: 40px;
+  background: #0c0c0c;
+  display: inline-block;
+
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+
+  /* Emerald Gradient Text */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+
+  background-image: linear-gradient(90deg, #10b981, #34d399, #10b981);
+
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+  margin-bottom: 50px;
+}
+
+.work-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #10b981, #34d399, #10b981);
+  box-shadow: 0 0 10px #10b98188;
+}
+
+/* ===== SLIDER WRAPPER ===== */
+.slider-wrapper {
+  position: relative;
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 50px;
+  padding: 70px 0 30px;
+  scroll-behavior: smooth;
+  cursor: grab;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+/* ===== GLASSMORPHISM + EMERALD GLOW CARD ===== */
+.partner-card {
+  min-width: 350px;
+  max-width: 350px;
+  padding: 25px;
+  border-radius: 18px;
+  /* Glass + Glow */
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow:
+    0 0 12px rgba(16, 185, 129, 0.3),
+    0 0 25px rgba(16, 185, 129, 0.15);
+
+  transition: transform 0.35s ease, box-shadow 0.3s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 22px rgba(16, 185, 129, 0.45),
+    0 0 35px rgba(16, 185, 129, 0.25);
+}
+
+.partner-logo {
+  width: 140;
+  margin-bottom: 20px;
+  /* filter: brightness(0) invert(1); */
+  /* opacity: 0.9; */
+}
+
+/* ===== TEXT ===== */
+.partner-text {
+  line-height: 1.6;
+  color: #d7d7d7;
+}
+
+/* ===== ARROWS WITH PREMIUM EMERALD GLOW ===== */
+.arrow-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #0a0a0a;
+  border: 1px solid #10b981;
+  color: #10b981;
+  cursor: pointer;
+  font-size: 20px;
+
+  transition: 0.25s;
+  z-index: 10;
+}
+
+.arrow-btn:hover {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: #0a0a0a;
+  box-shadow: 0 0 15px #10b98199;
+}
+
+.left { left: -10px; }
+.right { right: -10px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .partner-card {
+    min-width: 260px;
+  }
+  .arrow-btn {
+    display: none;
+  }
+}

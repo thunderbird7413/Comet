@@ -1,0 +1,10 @@
+.subtitle {
+  font-size: 1.6rem;
+  color: white;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.word {
+  display: inline-block;
+}

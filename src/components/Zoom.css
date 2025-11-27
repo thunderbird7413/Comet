@@ -1,0 +1,88 @@
+/* Wrapper */
+.zoom-wrapper {
+  position: relative;
+  height: 100vh;
+}
+
+/* Background section */
+.zoom-bg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+/* Image container with perspective */
+.img-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  perspective: 1800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* dark center shows through hollow ring */
+  background: #000;
+}
+
+/* TURN THE IMAGE INTO A RING */
+.zoom-img {
+  width: 100%;
+  /* max-width: 900px; */
+
+  /* make circular */
+  border-radius: 100%;
+
+  /* padding = ring thickness */
+  padding: 40px;
+
+  /* ring design using radial-gradient */
+  background: radial-gradient(
+    circle,
+    transparent 55%,        /* hollow center size */
+    #000 56%,               /* inner ring border */
+    #000 82%,               /* outer ring border */
+    transparent 83%         /* outer fade (optional) */
+  );
+
+  /* keep your 3D style */
+  transform-style: preserve-3d;
+
+  /* soft glow */
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
+}
+
+/* Text on top of image */
+.text-block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.title-text {
+  color: white;
+  font-size: 140px;
+  line-height: 1;
+  margin: 0;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+}
+
+.subtitle-text {
+  margin-top: 10px;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Lower container */
+.container {
+  padding: 40px;
+}

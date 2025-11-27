@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: cyan;
+  font-family: "Orbitron", sans-serif;
+}
+
+.outerRing {
+  width: 160px;
+  height: 160px;
+  border: 2px solid rgba(0, 255, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.7));
+}
+
+.innerRing {
+  width: 110px;
+  height: 110px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.scanLine {
+  position: absolute;
+  width: 3px;
+  height: 90px;
+  background: rgba(0, 255, 255, 0.5);
+  bottom: 50%;
+  transform-origin: bottom;
+  border-radius: 2px;
+}
+
+.number {
+  position: absolute;
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: 0 0 10px cyan;
+}
+
+.label {
+  margin-top: 12px;
+  font-size: 18px;
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
