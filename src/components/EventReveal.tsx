@@ -26,7 +26,7 @@ const events = [
 /* ---------- helper: pattern class index for V-shape (0..6) ---------- */
 const patternIndex = (i: number) => i % 7; // 7 positions repeated
 
-export default function EventsReveal(): JSX.Element {
+export default function EventsReveal() {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
     const [revealed, setRevealed] = useState(false);
