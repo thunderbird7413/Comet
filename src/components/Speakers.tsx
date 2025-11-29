@@ -40,7 +40,7 @@ export const speakers = [
   {
     name: "Vishal",
     designation: "Director Gen AI @Microsoft",
-    img: "/speakers/exclusive speakers/vishal.png",
+    img: "/speakers/exclusive speakers/vishal.JPG",
   },
 ];
 
