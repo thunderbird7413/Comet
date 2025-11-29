@@ -55,7 +55,7 @@ export default function Zoom() {
           <div ref={imgContainer} className="img-container">
             <img
               ref={img}
-              src="https://images.unsplash.com/photo-1719885160979-ee85f834845f?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="./zoomEffect.jpg"
               className="zoom-img"
               alt="hero"
             />

@@ -173,7 +173,7 @@ export default function WhoWeWorkWith() {
 
   return (
     <div className="work-section">
-     <h2 className="section-title">Sponsers</h2>
+     <h2 className="section-title cursor-hover">Sponsers</h2>
 
 
       <div className="slider-wrapper">

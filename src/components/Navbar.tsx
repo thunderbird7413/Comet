@@ -46,8 +46,8 @@ export default function Navbar() {
         CDC, <strong className="cursor-hover">IIT ROORKEE</strong>
       </div>
 
-      <div className="nav-wrap cursor-hover" ref={navRef}>
-        <nav className="nav desktop-nav cursor-hover">
+      <div className="nav-wrap" ref={navRef}>
+        <nav className="nav desktop-nav">
           <a href="#home">HOME</a>
           <a href="#about">ABOUT</a>
           <a href="#events">EVENTS</a>

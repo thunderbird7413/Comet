@@ -31,10 +31,10 @@
   /* max-width: 900px; */
 
   /* make circular */
-  border-radius: 100%;
+  /* border-radius: 100%; */
 
   /* padding = ring thickness */
-  padding: 40px;
+  /* padding: 40px; */
 
   /* ring design using radial-gradient */
   background: radial-gradient(

@@ -69,7 +69,7 @@ const team: TeamMember[] = [
 export default function TeamSection() {
     return (
         <div className="team-wrapper">
-            <h2 className="section-title">Team Members</h2>
+            <h2 className="section-title cursor-hover">Team Members</h2>
 
             <div className="team-grid">
                 {team.map((member, i) => (

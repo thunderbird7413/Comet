@@ -87,3 +87,49 @@ text-align: center;
 .speaker-bubble:hover .speaker-overlay {
 opacity: 1 !important;
 }
+
+/* Wrapper for bubble + text */
+.speaker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Name below the image */
+.speaker-name {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Designation below name */
+.speaker-designation {
+  margin-top: 5px;
+  font-size: 0.95rem;
+  color: #ccc;
+  max-width: 220px;
+  line-height: 1.3rem;
+}
+
+
+/* ------------------ Responsive ------------------ */
+@media (max-width: 600px) {
+  .speaker-bubble {
+    width: 160px;
+    height: 160px;
+  }
+
+  .speaker-name {
+    font-size: 1rem;
+  }
+
+  .speaker-designation {
+    font-size: 0.8rem;
+  }
+
+  .speakers-grid {
+    gap: 60px;
+  }
+}

@@ -12,7 +12,7 @@ export default function About() {
         <div className="about-badge-wrapper">
           <div className="about-badge">
             <div className="badge-glow"></div>
-            <span>ABOUT US</span>
+            <span className="cursor-hover">ABOUT US</span>
           </div>
         </div>
 

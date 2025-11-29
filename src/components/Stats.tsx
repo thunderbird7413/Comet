@@ -52,7 +52,7 @@ const timelineData = [
     <section className="timeline-section">
 
       <div className="timeline-container">
-        <h2 className="section-title">Our Impact</h2>
+        <h2 className="section-title cursor-hover">Our Impact</h2>
         <div className="timeline-line"  style={{marginTop: "50px"}}></div>
 
         {timelineData.map((item, index) => (
