@@ -1,26 +1,19 @@
-html, body, * {
-  cursor: none !important;
-}
-
-/* SMALL DOT */
 .custom-cursor {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 20px;
   height: 20px;
   background: white;
   border-radius: 50%;
   pointer-events: none;
   z-index: 999999;
-  transform: translate(-50%, -50%);
-  transition: 0.25s ease;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border 0.25s ease;
+  transform: translate(-50%, -50%); /* KEEP THIS */
 }
 
 /* BIG TRANSPARENT CIRCLE */
 .cursor-big {
   width: 120px;
   height: 120px;
-  background: rgba(109, 108, 108, 0); /* transparent */
+  background: rgba(109, 108, 108, 0);
   border: 2px solid rgba(255, 255, 255, 0.4);
 }

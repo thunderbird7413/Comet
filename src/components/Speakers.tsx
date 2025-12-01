@@ -74,7 +74,7 @@ export default function PastSpeakers() {
             <div key={index} className="speaker-container">
               <div className="speaker-bubble">
                 <img src={speaker.img} alt={speaker.name} />
-                <div className="speaker-overlay">{speaker.name}</div>
+                {/* <div className="speaker-overlay">{speaker.name}</div> */}
               </div>
               <p className="speaker-name">{speaker.name}</p>
               <p className="speaker-designation">{speaker.designation}</p>
@@ -92,7 +92,7 @@ export default function PastSpeakers() {
             <div key={index} className="speaker-container">
               <div className="speaker-bubble">
                 <img src={creator.img} alt={creator.name} />
-                <div className="speaker-overlay">{creator.name}</div>
+                {/* <div className="speaker-overlay">{creator.name}</div> */}
               </div>
               <p className="speaker-name">{creator.name}</p>
               <p className="speaker-designation">{creator.designation}</p>

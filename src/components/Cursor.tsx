@@ -4,18 +4,28 @@ import "./Cursor.css";
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const mouseX = useRef(0);
+  const mouseY = useRef(0);
 
   useEffect(() => {
     const cursor = cursorRef.current;
     if (!cursor) return;
 
-    const move = (e: MouseEvent) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX.current = e.clientX;
+      mouseY.current = e.clientY;
     };
 
-    window.addEventListener("mousemove", move);
+    window.addEventListener("mousemove", handleMouseMove);
 
+    // Smooth animation loop
+    const animate = () => {
+      cursor.style.transform = `translate(${mouseX.current}px, ${mouseY.current}px)`;
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    // Hover handlers
     const hoverItems = document.querySelectorAll(".cursor-hover");
 
     hoverItems.forEach((el) => {
@@ -28,7 +38,7 @@ export default function Cursor() {
     });
 
     return () => {
-      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
