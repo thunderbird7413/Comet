@@ -2,28 +2,44 @@
 import React from "react";
 import "./Workshops.css";
 export default function Cards() {
-  const cardData = [
-    {
-      title: "Workshop 1",
-      desc: "Learn advanced techniques with hands-on practice.",
-      img: "https://images.unsplash.com/photo-1719336608200-25e327f4332a?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
-      title: "Workshop 2",
-      desc: "Improve your creative skills with expert guidance.",
-      img: "https://images.unsplash.com/photo-1663534346049-b8874aae17ba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDExfHx8ZW58MHx8fHx8",
-    },
-    {
-      title: "Workshop 3",
-      desc: "Master fundamentals and build real-world projects.",
-      img: "https://images.unsplash.com/photo-1632967385345-703e01d5077c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8",
-    },
-    {
-      title: "Workshop 4",
-      desc: "A complete step-by-step learning experience.",
-      img: "https://images.unsplash.com/photo-1702901023340-7bc1fcc30a3d?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-  ];
+ const cardData = [
+  {
+    title: "Project Management Workshop",
+    desc: "Learn planning, execution, and real-world project handling with structured industry insights.",
+    img: "./Workshops/Management.jpg",
+  },
+  {
+    title: "Financial Taxation Workshop",
+    desc: "Understand taxation fundamentals, regulations, and practical financial decision-making strategies.",
+    img: "./Workshops/Taxation.jpg",
+  },
+  {
+    title: "Blockchain Workshop",
+    desc: "Explore blockchain basics, smart contracts, decentralized systems, and their real-world applications.",
+    img: "./Workshops/Blockchain.jpg",
+  },
+  {
+    title: "Improv Workshop",
+    desc: "Boost creativity, spontaneity, and communication skills through dynamic improvisation activities.",
+    img: "./Workshops/Improv.jpg",
+  },
+  {
+    title: "Data Analytics Workshop",
+    desc: "Gain hands-on experience with analytical tools to interpret data and solve real-world problems.",
+    img: "./Workshops/Data.jpg",
+  },
+  {
+    title: "Trading Workshop",
+    desc: "Learn market fundamentals, trading logic, and smart strategies for financial decision-making.",
+    img: "./Workshops/Trading.jpg",
+  },
+  {
+    title: "PG Pathways Workshop",
+    desc: "Get structured guidance for CAT, GMAT, and GRE with strategies to improve speed and accuracy.",
+    img: "./Workshops/PG.jpg",
+  }
+];
+
 
   return (
     <div className="cards-container">

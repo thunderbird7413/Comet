@@ -26,24 +26,24 @@ export default function Timeline() {
 
 const timelineData = [
   {
-    title: "4K+ Participants",
-    desc: "A vibrant and diverse community of students, creators, and innovators who actively engage and make every edition unforgettable."
+    title: "1500+ PARTICIPANTS NATIONWIDE",
+    desc: "An engaged community of students, creators, and professionals from across india, making the event a truly national odyssey."
   },
   {
-    title: "50+ Events",
-    desc: "A powerful lineup of competitions, workshops, challenges, and experiences designed to unleash creativity across all domains."
+    title: "15+ DISTINGUISHED SPEAKERS",
+    desc: "A lineup of renowned experts and industry leaders who brought insight, experience, and transformational learning to comet’25."
   },
   {
-    title: "25K+ Digital Reach",
-    desc: "An expanding online footprint connecting thousands across social platforms, amplifying our message and impact."
+    title: "20+ WORKSHOPS CONDUCTED",
+    desc: "Immersive, hands-on sessions designed to upskill attendees, spark innovation, and ignite career-driven learning."
   },
   {
-    title: "40+ Speakers",
-    desc: "Industry experts, mentors, and leaders who share valuable insights, experiences, and future-ready perspectives."
+    title: "10+ COMPETITIVE EVENTS",
+    desc: "A dynamic array of challenges and competitions that tested skill, strategy, and creativity across multiple domains."
   },
   {
-    title: "10L+ Worth Prizes",
-    desc: "Rewarding excellence with exciting prizes, grants, and recognitions that motivate participants to push their limits."
+    title: "₹10L+ WORTH PRIZES DISTRIBUTED",
+    desc: "Recognizing talent and celebrating excellence with significant rewards that empowered and motivated participants."
   }
 ];
 

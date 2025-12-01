@@ -16,12 +16,21 @@
   text-align: center;
 }
 
+/* UPDATED GRID */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  gap: 30px;                 /* bigger spacing */
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
+  justify-content: center;   /* center entire grid */
+}
+
+/* Center the last single card when odd */
+.cards-grid > .card:nth-last-child(1):nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 420px;
+  justify-self: center;
 }
 
 /* Card */
@@ -73,6 +82,11 @@
 @media (max-width: 768px) {
   .cards-grid {
     grid-template-columns: 1fr;
+    justify-items: center;  /* centers all cards on mobile */
+  }
+
+  .card {
+    width: 90%;
   }
 
   .card-img-wrapper {
