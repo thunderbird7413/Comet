@@ -102,6 +102,7 @@ function Card3D({ member }: { member: TeamMember }) {
     };
 
     return (
+        <section id="#members">
         <div
             ref={cardRef}
             className="team-card"
@@ -118,5 +119,6 @@ function Card3D({ member }: { member: TeamMember }) {
                 <span>{member.phone}</span>
             </div>
         </div>
+        </section>
     );
 }

@@ -38,11 +38,11 @@ export default function Navbar() {
         },
         "-=0.4"
       );
-  }, []);
+}, []);
 
   return (
-    <header className="header container1 cursor-hover">
-      <div className="brand cursor-hover" ref={brandRef}>
+    <header className="header container1">
+      <div className="brand" ref={brandRef}>
         CDC, <strong className="cursor-hover">IIT ROORKEE</strong>
       </div>
 
@@ -57,7 +57,7 @@ export default function Navbar() {
       </div>
 
       <button
-        className="register desktop-register cursor-hover"
+        className="register desktop-register"
         ref={registerRef}
       >
         REGISTER

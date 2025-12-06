@@ -135,9 +135,9 @@ export default function EventsReveal() {
     };
 
     return (
-        <section className={styles.section} aria-label="Events reveal section">
+        <section className={styles.section} id="events" aria-label="Events reveal section">
             <div className={styles.header}>
-                <div className={styles.badge}>Event Lineup</div>
+                {/* <div className={styles.badge}>Event Lineup</div> */}
                 <h2 className={styles.title}>Upcoming <span className={styles.accent}>— Events</span></h2>
                 {/* <p className={styles.lead}>Explore our curated selection — scroll to unfold and interact with each event.</p> */}
             </div>

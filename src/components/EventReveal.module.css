@@ -30,7 +30,7 @@
   display: inline-block;
   padding: 6px 12px;
   border-radius: 999px;
-  color: #22d3ee;
+  color: #00FF9C;
   border: 1px solid rgba(34,211,238,0.12);
   backdrop-filter: blur(6px);
   font-weight: 700;
@@ -38,12 +38,12 @@
   margin-bottom: 10px;
 }
 .title {
-  font-size: 28px;
+  font-size: 50px;
   margin: 6px 0;
   font-weight: 800;
 }
 .accent {
-  background: linear-gradient(90deg,#22d3ee,#3b82f6,#9333ea);
+  background: linear-gradient(90deg,#22d3ee,#00FF9C,#00ff80);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
