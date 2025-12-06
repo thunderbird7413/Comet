@@ -20,7 +20,7 @@ export default function Home() {
       <Hero />
       <About />
       <Timeline />
-      <div className="page8">
+      <div className="page8 remove">
           <Zoom />
       </div>
       <Workshops />

@@ -5,7 +5,6 @@ import "./Team.css";
 interface TeamMember {
     name: string;
     role: string;
-    phone: string;
     img: string;
 }
 
@@ -13,56 +12,82 @@ const team: TeamMember[] = [
     {
         name: "Lalit",
         role: "Founder & CEO",
-        phone: "+91 98765 43210",
         img: "/team/Lalit.jpg",
     },
     {
         name: "Anusha Gupta",
         role: "Creative Director",
-        phone: "+91 99887 66554",
         img: "/team/Anusha.jpeg",
     },
     {
         name: "Pranjal",
         role: "Technical Head",
-        phone: "+91 90909 12121",
         img: "/team/Pranjal.jpg",
     },
     {
         name: "Kartik Garg",
         role: "Marketing Lead",
-        phone: "+91 88123 45678",
         img: "/team/Kartik.jpeg",
     },
     {
         name: "Swayam",
         role: "Marketing Lead",
-        phone: "+91 88123 45678",
         img: "/team/Swayam.jpg",
     },
     {
         name: "Sumit Tiwari",
         role: "Marketing Lead",
-        phone: "+91 88123 45678",
         img: "/team/Tiwari.jpg",
     },
     {
         name: "Moulik Bansal",
         role: "Promotions",
-        phone: "+91 88123 45678",
         img: "/team/Moulik Bansal_proms.jpg",
     },
     {
         name: "Nilesh",
         role: "Outreach",
-        phone: "+91 88123 45678",
         img: "/team/Nilesh_Outreach.jpg",
     },
     {
         name: "Fazil",
         role: "Operations",
-        phone: "+91 88123 45678",
         img: "/team/Fazil_Operations.jpg",
+    },
+    {
+        name: "Ahraz Rafiq",
+        role: "Sponsorship & Outreach",
+        img: "/team/Ahraz_Rafiq_Spons_Outreach.jpg",
+    },
+    {
+        name: "Karthika",
+        role: "Content",
+        img: "/team/Karthika_content.jpg",
+    },
+    {
+        name: "Arpita Mishra",
+        role: "Promotions",
+        img: "/team/Arpita Mishra_proms.jpg",
+    },
+    {
+        name: "Ashwin",
+        role: "Marketing",
+        img: "/team/Ashwin_Marketing.jpg",
+    },
+    {
+        name: "Bhoomi Gupta",
+        role: "Design",
+        img: "/team/Bhoomi Gupta_Design.jpg",
+    },
+    {
+        name: "Kushagra",
+        role: "Design",
+        img: "/team/Kushagra_Design.jpg",
+    },
+    {
+        name: "Yashwant",
+        role: "Video Editing Head",
+        img: "/team/Yashwant.jpg",
     },
 ];
 
@@ -103,22 +128,21 @@ function Card3D({ member }: { member: TeamMember }) {
 
     return (
         <section id="#members">
-        <div
-            ref={cardRef}
-            className="team-card"
-            onMouseMove={handleMove}
-            onMouseLeave={handleLeave}
-        >
-            <div className="team-img">
-                <img src={member.img} alt={member.name} />
-            </div>
+            <div
+                ref={cardRef}
+                className="team-card"
+                onMouseMove={handleMove}
+                onMouseLeave={handleLeave}
+            >
+                <div className="team-img">
+                    <img src={member.img} alt={member.name} />
+                </div>
 
-            <div className="team-info">
-                <h2>{member.name}</h2>
-                <p>{member.role}</p>
-                <span>{member.phone}</span>
+                <div className="team-info">
+                    <h2>{member.name}</h2>
+                    <p>{member.role}</p>
+                </div>
             </div>
-        </div>
         </section>
     );
 }
