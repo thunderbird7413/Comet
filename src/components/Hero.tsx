@@ -7,7 +7,7 @@ export default function Hero() {
     <section id="home" className="hero container">
       <div className="hero-inner" style={{ isolation: "isolate" }}>
         <AnimatedTitle text="COMET'26" />
-        <AnimatedSubtitle text="Designing the future." />
+        <AnimatedSubtitle text="Where Vision Fuels Creation" />
       </div>
 
         <div className="hero-sphere">
