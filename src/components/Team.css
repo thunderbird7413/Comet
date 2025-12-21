@@ -1,16 +1,18 @@
 /* Wrapper */
 .section-title {
-font-size: 2.8rem;
-font-weight: 700;
-margin-bottom: 40px;
-text-align: center;
-color: #fff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #fff;
 }
-.outer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .team-wrapper {
   min-height: 100vh;
   width: 100%;
@@ -31,12 +33,24 @@ color: #fff;
 }
 
 /* Grid */
-.team-grid {
-    margin-top: 60px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+/* Layout Container */
+.team-container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  /* Space between hierarchy levels */
+  align-items: center;
+}
+
+/* Rows (Convenors, Co-Convenors, Heads) */
+.team-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 40px;
-  place-items: center;
+  width: 100%;
+  max-width: 1400px;
 }
 
 /* 3D Glassmorphism Team Card */

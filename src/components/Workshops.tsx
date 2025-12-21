@@ -2,43 +2,38 @@
 import React from "react";
 import "./Workshops.css";
 export default function Cards() {
- const cardData = [
-  {
-    title: "Project Management Workshop",
-    desc: "Learn planning, execution, and real-world project handling with structured industry insights.",
-    img: "./Workshops/Management.jpg",
-  },
-  {
-    title: "Financial Taxation Workshop",
-    desc: "Understand taxation fundamentals, regulations, and practical financial decision-making strategies.",
-    img: "./Workshops/Taxation.jpg",
-  },
-  {
-    title: "Blockchain Workshop",
-    desc: "Explore blockchain basics, smart contracts, decentralized systems, and their real-world applications.",
-    img: "./Workshops/Blockchain.jpg",
-  },
-  {
-    title: "Improv Workshop",
-    desc: "Boost creativity, spontaneity, and communication skills through dynamic improvisation activities.",
-    img: "./Workshops/Improv.jpg",
-  },
-  {
-    title: "Data Analytics Workshop",
-    desc: "Gain hands-on experience with analytical tools to interpret data and solve real-world problems.",
-    img: "./Workshops/Data.jpg",
-  },
-  {
-    title: "Trading Workshop",
-    desc: "Learn market fundamentals, trading logic, and smart strategies for financial decision-making.",
-    img: "./Workshops/Trading.jpg",
-  },
-  {
-    title: "PG Pathways Workshop",
-    desc: "Get structured guidance for CAT, GMAT, and GRE with strategies to improve speed and accuracy.",
-    img: "./Workshops/PG.jpg",
-  }
-];
+  const cardData = [
+    {
+      title: "Project Management Workshop",
+      desc: "Learn planning, execution, and real-world project handling with structured industry insights.",
+      img: "/workshop/workshop_project.jpeg",
+    },
+    {
+      title: "Blockchain Workshop",
+      desc: "Explore blockchain basics, smart contracts, decentralized systems, and their real-world applications.",
+      img: "/workshop/workshop_blockchain.jpeg",
+    },
+    {
+      title: "Financial Taxation Workshop",
+      desc: "Understand taxation fundamentals, regulations, and practical financial decision-making strategies.",
+      img: "/workshop/workshop_finance.jpeg",
+    },
+    {
+      title: "Improv Workshop",
+      desc: "Boost creativity, spontaneity, and communication skills through dynamic improvisation activities.",
+      img: "/workshop/worksop_improv.jpeg",
+    },
+    {
+      title: "Trading Workshop",
+      desc: "Learn market fundamentals, trading logic, and smart strategies for financial decision-making.",
+      img: "/workshop/workshop_trading.jpeg",
+    },
+    {
+      title: "PG Pathways Workshop",
+      desc: "Get structured guidance for CAT, GMAT, and GRE with strategies to improve speed and accuracy.",
+      img: "/workshop/workshop_pgpathways.jpeg",
+    }
+  ];
 
 
   return (

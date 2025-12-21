@@ -8,87 +8,29 @@ interface TeamMember {
     img: string;
 }
 
-const team: TeamMember[] = [
-    {
-        name: "Lalit",
-        role: "Founder & CEO",
-        img: "/team/Lalit.jpg",
-    },
-    {
-        name: "Anusha Gupta",
-        role: "Creative Director",
-        img: "/team/Anusha.jpeg",
-    },
-    {
-        name: "Pranjal",
-        role: "Technical Head",
-        img: "/team/Pranjal.jpg",
-    },
-    {
-        name: "Kartik Garg",
-        role: "Marketing Lead",
-        img: "/team/Kartik.jpeg",
-    },
-    {
-        name: "Swayam",
-        role: "Marketing Lead",
-        img: "/team/Swayam.jpg",
-    },
-    {
-        name: "Sumit Tiwari",
-        role: "Marketing Lead",
-        img: "/team/Tiwari.jpg",
-    },
-    {
-        name: "Moulik Bansal",
-        role: "Promotions",
-        img: "/team/Moulik Bansal_proms.jpg",
-    },
-    {
-        name: "Nilesh",
-        role: "Outreach",
-        img: "/team/Nilesh_Outreach.jpg",
-    },
-    {
-        name: "Fazil",
-        role: "Operations",
-        img: "/team/Fazil_Operations.jpg",
-    },
-    {
-        name: "Ahraz Rafiq",
-        role: "Sponsorship & Outreach",
-        img: "/team/Ahraz_Rafiq_Spons_Outreach.jpg",
-    },
-    {
-        name: "Karthika",
-        role: "Content",
-        img: "/team/Karthika_content.jpg",
-    },
-    {
-        name: "Arpita Mishra",
-        role: "Promotions",
-        img: "/team/Arpita Mishra_proms.jpg",
-    },
-    {
-        name: "Ashwin",
-        role: "Marketing",
-        img: "/team/Ashwin_Marketing.jpg",
-    },
-    {
-        name: "Bhoomi Gupta",
-        role: "Design",
-        img: "/team/Bhoomi Gupta_Design.jpg",
-    },
-    {
-        name: "Kushagra",
-        role: "Design",
-        img: "/team/Kushagra_Design.jpg",
-    },
-    {
-        name: "Yashwant",
-        role: "Video Editing Head",
-        img: "/team/Yashwant.jpg",
-    },
+const convenors: TeamMember[] = [
+    { name: "Kartik Garg", role: "Convenor", img: "/team/Kartik.jpeg" },
+    { name: "Sumit Tiwari", role: "Convenor", img: "/team/Tiwari.jpg" },
+];
+
+const coConvenors: TeamMember[] = [
+    { name: "Anusha Gupta", role: "Co-Convenor", img: "/team/Anusha.jpeg" },
+    { name: "Lalit Jingar", role: "Co-Convenor", img: "/team/Lalit.jpg" },
+    { name: "Kushagra", role: "Co-Convenor", img: "/team/Kushagra_Design.jpg" },
+];
+
+const heads: TeamMember[] = [
+    { name: "Vinayak Jat", role: "Web-D Head", img: "/team/vinayak.jpeg" },
+    { name: "Bhoomi", role: "Design Head", img: "/team/Bhoomi Gupta_Design.jpg" },
+    { name: "Maulik Bansal", role: "Promotions Head", img: "/team/Moulik Bansal_proms.jpg" },
+    { name: "Arpita Mishra", role: "Promotions Head", img: "/team/Arpita Mishra_proms.jpg" },
+    { name: "Nilesh", role: "Sponsorship & Outreach Head", img: "/team/Nilesh_Outreach.jpg" },
+    { name: "Ahraz Rafiq", role: "Sponsorship & Outreach Head", img: "/team/Ahraz_Rafiq_Spons_Outreach.jpg" },
+    { name: "Yashwant", role: "Video Editing Head", img: "/team/Yashwant.jpg" },
+    { name: "Ashwini", role: "Marketing Head", img: "/team/Ashwin_Marketing.jpg" },
+    { name: "Karthika", role: "Content Head", img: "/team/Karthika_content.jpg" },
+    { name: "Fazil", role: "Operations Head", img: "/team/Fazil_Operations.jpg" },
+    { name: "Pranjal", role: "Events Head", img: "/team/Pranjal.jpg" },
 ];
 
 export default function TeamSection() {
@@ -96,10 +38,27 @@ export default function TeamSection() {
         <div className="team-wrapper">
             <h2 className="section-title cursor-hover">Team Members</h2>
 
-            <div className="team-grid">
-                {team.map((member, i) => (
-                    <Card3D key={i} member={member} />
-                ))}
+            <div className="team-container">
+                {/* Convenors Row */}
+                <div className="team-row">
+                    {convenors.map((member, i) => (
+                        <Card3D key={member.name} member={member} />
+                    ))}
+                </div>
+
+                {/* Co-Convenors Row */}
+                <div className="team-row">
+                    {coConvenors.map((member, i) => (
+                        <Card3D key={member.name} member={member} />
+                    ))}
+                </div>
+
+                {/* Heads Row (Wrapped) */}
+                <div className="team-row">
+                    {heads.map((member, i) => (
+                        <Card3D key={member.name} member={member} />
+                    ))}
+                </div>
             </div>
         </div>
     );
