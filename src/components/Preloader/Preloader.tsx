@@ -12,6 +12,12 @@ export default function Preloader() {
     const textRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        // Validation to ensure all elements exist before animating
+        const title = textRef.current?.querySelector("h1");
+        const subtitle = textRef.current?.querySelector("p");
+
+        if (!title || !subtitle || !containerRef.current || !flashRef.current || !textRef.current) return;
+
         document.body.style.overflow = "hidden";
 
         const tl = gsap.timeline();
@@ -19,10 +25,6 @@ export default function Preloader() {
         // 0. Initial State
         gsap.set(containerRef.current, { opacity: 1 });
         gsap.set(flashRef.current, { opacity: 0 });
-
-        // Helper to get text elements
-        const title = textRef.current?.querySelector("h1");
-        const subtitle = textRef.current?.querySelector("p");
 
         // --- PHASE 1: DEFY GRAVITY (0s - 1.5s) ---
         // Smooth entry, expanding space
