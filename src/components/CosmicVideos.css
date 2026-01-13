@@ -1,0 +1,140 @@
+/* CosmicVideos.css */
+.cosmic-videos-section {
+    position: relative;
+    padding: 6rem 2rem;
+    overflow: hidden;
+    background-color: transparent;
+    /* Assuming background is handled by global or parent */
+    z-index: 10;
+}
+
+.cosmic-videos-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    /* 60% Left, 40% Right roughly */
+    gap: 2rem;
+    height: 700px;
+    /* Fixed height for the aesthetic layout */
+}
+
+/* Common Video Card Styling */
+.video-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    /* Glassmorphism base */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(120, 119, 198, 0.2);
+    /* Purple/Blueish glow */
+    border-color: rgba(167, 139, 250, 0.3);
+}
+
+.video-card:hover video {
+    transform: scale(1.03);
+}
+
+/* Left Large Video */
+.main-video {
+    height: 100%;
+}
+
+/* Right Column Stack */
+.side-videos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+}
+
+.side-video-item {
+    flex: 1;
+    /* Each takes 50% height */
+}
+
+/* Overlay / Title on hover (Optional, but adds aesthetic) */
+.video-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-card:hover .video-overlay {
+    opacity: 1;
+}
+
+.video-caption {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .videos-grid {
+        height: auto;
+        grid-template-columns: 1fr;
+        /* Stack vertically on tablet/mobile */
+        gap: 2rem;
+    }
+
+    .main-video {
+        height: 400px;
+        /* Fixed height for main video on mobile */
+    }
+
+    .side-videos {
+        flex-direction: row;
+        /* Side-by-side on tablet? or stack? Let's stack for mobile fully */
+        height: auto;
+        gap: 1.5rem;
+    }
+
+    .side-video-item {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cosmic-video-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .main-video {
+        height: 300px;
+    }
+
+    .side-videos {
+        flex-direction: column;
+    }
+
+    .side-video-item {
+        height: 250px;
+    }
+}

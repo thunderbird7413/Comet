@@ -1,0 +1,141 @@
+.cosmic-gallery-section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+    padding: 0;
+    cursor: none;
+    /* padding: 30px 10px; */
+}
+
+.cosmic-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.cosmic-title {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 3.5rem;
+    /* Reduced from 6rem */
+    font-weight: 500;
+    /* Regular/Medium per reference */
+    color: white;
+    letter-spacing: -0.02em;
+    text-align: center;
+    line-height: 1.1;
+    margin: 0;
+    /* margin-bottom: 1.5rem; */
+}
+
+.cosmic-description {
+    color: #9CA3AF;
+    /* gray-400 */
+    font-size: 1.125rem;
+    max-width: 500px;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    padding: 0 20px;
+    /* Prevent edge touching on mobile */
+}
+
+@media (min-width: 768px) {
+    .cosmic-title {
+        font-size: 4.5rem;
+        /* Responsive size */
+    }
+}
+
+.cosmic-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.cosmic-btn-fill {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+    pointer-events: auto;
+    cursor: pointer;
+    border: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.cosmic-btn-fill:hover {
+    transform: scale(1.05);
+}
+
+.cosmic-btn-outline {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    border: 1px solid white;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    pointer-events: auto;
+    cursor: pointer;
+    background: transparent;
+    font-family: 'Inter', sans-serif;
+}
+
+.cosmic-btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   MOBILE LIST VIEW
+========================================= */
+.cosmic-gallery-section.mobile-view {
+    height: auto;
+    /* Allow scrolling */
+    min-height: 100vh;
+    padding-bottom: 50px;
+    overflow-y: visible;
+    /* Ensure scroll works */
+}
+
+/* Position text at top for mobile */
+.cosmic-gallery-section.mobile-view .cosmic-content {
+    position: relative;
+    padding: 60px 20px 30px;
+    height: auto;
+}
+
+.mobile-gallery-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.mobile-gallery-item {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 255, 156, 0.15);
+    /* Subtle emerald glow */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

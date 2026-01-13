@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import "./Team.css";
 
 interface TeamMember {
@@ -33,10 +34,19 @@ const heads: TeamMember[] = [
     { name: "Pranjal", role: "Events Head", img: "/team/Pranjal.jpg" },
 ];
 
+
 export default function TeamSection() {
     return (
         <div className="team-wrapper">
-            <h2 className="section-title cursor-hover">Team Members</h2>
+            <motion.h2
+                className="section-title cursor-hover"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+            >
+                Team Members
+            </motion.h2>
 
             <div className="team-container">
                 {/* Convenors Row */}
@@ -86,7 +96,7 @@ function Card3D({ member }: { member: TeamMember }) {
     };
 
     return (
-        <section id="#members">
+        <section id="members">
             <div
                 ref={cardRef}
                 className="team-card"

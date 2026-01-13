@@ -13,32 +13,38 @@ export default function Navbar() {
   const handleNavClick = () => setOpen(false);
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    let ctx = gsap.context(() => {
+      // Start paused
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" }, paused: true });
 
-    tl.from(brandRef.current, {
-      x: -80,
-      opacity: 0,
-      duration: 0.8,
-    })
-      .from(
-        registerRef.current,
-        {
-          x: 80,
-          opacity: 0,
-          duration: 1.0,
-        },
-        "-=0.5"
+      tl.fromTo(brandRef.current,
+        { x: -80, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8 }
       )
-      .from(
-        navRef.current,
-        {
-          y: -40,
-          opacity: 0,
-          duration: 1.5,
-        },
-        "-=0.4"
-      );
-}, []);
+        .fromTo(registerRef.current,
+          { x: 80, opacity: 0 },
+          { x: 0, opacity: 1, duration: 1.0 },
+          "-=0.5"
+        )
+        .fromTo(navRef.current,
+          { y: -40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1.5 },
+          "-=0.4"
+        );
+
+      const onLanding = () => {
+        tl.play();
+      };
+
+      window.addEventListener("landing-complete", onLanding);
+
+      // Cleanup listener
+      return () => window.removeEventListener("landing-complete", onLanding);
+
+    }, [brandRef, navRef, registerRef]); // Scope
+
+    return () => ctx.revert(); // Cleanup
+  }, []);
 
   return (
     <header className="header container1">

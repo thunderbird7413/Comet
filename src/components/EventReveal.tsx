@@ -138,7 +138,7 @@ export default function EventsReveal() {
         <section className={styles.section} id="events" aria-label="Events reveal section">
             <div className={styles.header}>
                 {/* <div className={styles.badge}>Event Lineup</div> */}
-                <h2 className={styles.title}>Upcoming <span className={styles.accent}>— Events</span></h2>
+                <h2 className="section-title">Upcoming <span className={styles.accent}>Events</span></h2>
                 {/* <p className={styles.lead}>Explore our curated selection — scroll to unfold and interact with each event.</p> */}
             </div>
             <div className={styles.initialStackWrapper}>
@@ -152,12 +152,29 @@ export default function EventsReveal() {
                                 ref={(el) => setRef(el, idx)}
                                 className={`${styles.card} ${posClass}`}
                                 style={{ backgroundImage: bg }}
-                                onMouseMove={(e) => {
+                                onMouseEnter={(e) => {
+                                    // Cache the rect on enter to avoid layout thrashing on move
                                     const el = cardRefs.current[idx];
                                     if (!el) return;
                                     const r = el.getBoundingClientRect();
-                                    const px = (e.clientX - r.left) / r.width;
-                                    const py = (e.clientY - r.top) / r.height;
+                                    el.setAttribute("data-l", r.left.toString());
+                                    el.setAttribute("data-t", r.top.toString());
+                                    el.setAttribute("data-w", r.width.toString());
+                                    el.setAttribute("data-h", r.height.toString());
+                                }}
+                                onMouseMove={(e) => {
+                                    const el = cardRefs.current[idx];
+                                    if (!el) return;
+                                    // Read from attributes instead of causing reflow
+                                    const left = parseFloat(el.getAttribute("data-l") || "0");
+                                    const top = parseFloat(el.getAttribute("data-t") || "0");
+                                    const w = parseFloat(el.getAttribute("data-w") || "1");
+                                    const h = parseFloat(el.getAttribute("data-h") || "1");
+
+                                    const px = (e.clientX - left) / w;
+                                    const py = (e.clientY - top) / h;
+
+                                    // Use requestAnimationFrame for smoother updates if needed, but direct style set is okay if no reflow
                                     el.style.setProperty("--mx", `${(px - 0.5) * 10}deg`);
                                     el.style.setProperty("--my", `${(py - 0.5) * 8}px`);
                                     el.style.setProperty("--bx", `${50 + (px - 0.5) * 6}%`);

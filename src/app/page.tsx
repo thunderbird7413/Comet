@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import CosmicGallery from "@/components/CosmicGallery"; // Imported
 import HudStat from "@/components/Stats";
 import Timeline from "@/components/Stats";
 import EventReveal from "@/components/EventReveal";
@@ -13,6 +14,8 @@ import Workshops from "@/components/Workshops"
 // import Workshops from "@/components/Workshops";
 
 
+import CosmicVideos from "@/components/CosmicVideos";
+
 export default function Home() {
   return (
     <main>
@@ -21,10 +24,12 @@ export default function Home() {
       <About />
       <Timeline />
       <div className="page8 remove">
-          <Zoom />
+        <Zoom />
       </div>
       <Workshops />
       <EventReveal />
+      <CosmicGallery />
+      <CosmicVideos />
       <PastSpeakers />
       <Sponsers />
       <TeamSection />
@@ -33,3 +38,4 @@ export default function Home() {
     </main>
   );
 }
+

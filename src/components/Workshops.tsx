@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
+import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 import "./Workshops.css";
+
 export default function Cards() {
   const cardData = [
     {
@@ -38,20 +41,30 @@ export default function Cards() {
 
   return (
     <div className="cards-container">
-      <h2 className="cards-heading">Our Workshops</h2>
+      <motion.h2
+        className="section-title"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        Our Workshops
+      </motion.h2>
 
       <div className="cards-grid">
         {cardData.map((item, index) => (
-          <div key={index} className="card">
-            <div className="card-img-wrapper">
-              <img src={item.img} alt={item.title} className="card-img" />
-            </div>
+          <Tilt key={index} tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={2500} className="card-tilt">
+            <div className="card">
+              <div className="card-img-wrapper">
+                <img src={item.img} alt={item.title} className="card-img" />
+              </div>
 
-            <div className="card-content">
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
+              <div className="card-content">
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
             </div>
-          </div>
+          </Tilt>
         ))}
       </div>
     </div>

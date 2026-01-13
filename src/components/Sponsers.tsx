@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import "./Sponsers.css";
 
 interface PartnerCardProps {
@@ -173,7 +174,15 @@ export default function WhoWeWorkWith() {
 
   return (
     <div className="work-section">
-     <h2 className="section-title cursor-hover">Sponsers</h2>
+      <motion.h2
+        className="section-title cursor-hover"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+      >
+        Sponsers
+      </motion.h2>
 
 
       <div className="slider-wrapper">

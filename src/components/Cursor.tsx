@@ -1,46 +1,80 @@
 "use client";
 import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import "./Cursor.css";
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const mouseX = useRef(0);
-  const mouseY = useRef(0);
+  const followerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Hide default cursor
+    document.body.style.cursor = 'none';
+
     const cursor = cursorRef.current;
-    if (!cursor) return;
+    const follower = followerRef.current;
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.current = e.clientX;
-      mouseY.current = e.clientY;
-    };
+    if (!cursor || !follower) return;
 
-    window.addEventListener("mousemove", handleMouseMove);
+    let posX = 0, posY = 0;
+    let mouseX = 0, mouseY = 0;
 
-    // Smooth animation loop
-    const animate = () => {
-      cursor.style.transform = `translate(${mouseX.current}px, ${mouseY.current}px)`;
-      requestAnimationFrame(animate);
-    };
-    animate();
+    // Use GSAP ticker for smooth animation loop
+    gsap.ticker.add(() => {
+      const dt = 1.0 - Math.pow(1.0 - 0.15, gsap.ticker.deltaRatio());
 
-    // Hover handlers
-    const hoverItems = document.querySelectorAll(".cursor-hover");
+      posX += (mouseX - posX) * dt;
+      posY += (mouseY - posY) * dt;
 
-    hoverItems.forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        cursor.classList.add("cursor-big");
-      });
-      el.addEventListener("mouseleave", () => {
-        cursor.classList.remove("cursor-big");
-      });
+      // Inner dot follows directly
+      gsap.set(cursor, { x: mouseX, y: mouseY });
+
+      // Outer ring follows with lag
+      gsap.set(follower, { x: posX - 16, y: posY - 16 }); // Offset by half width/height
     });
 
+    const onMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+
+    // Hover effects
+    const handleMouseEnter = () => {
+      follower.classList.add("cursor-hover-active");
+      gsap.to(follower, { scale: 1.5, duration: 0.3 });
+    };
+
+    const handleMouseLeave = () => {
+      follower.classList.remove("cursor-hover-active");
+      gsap.to(follower, { scale: 1, duration: 0.3 });
+    };
+
+    // Attach to interactive elements
+    const hoverTargets = document.querySelectorAll("a, button, .cursor-hover, input, textarea, .card");
+    hoverTargets.forEach((el) => {
+      el.addEventListener("mouseenter", handleMouseEnter);
+      el.addEventListener("mouseleave", handleMouseLeave);
+    });
+
+    // Cleanup
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", onMouseMove);
+      gsap.ticker.remove(() => { });
+      document.body.style.cursor = 'auto';
+
+      hoverTargets.forEach((el) => {
+        el.removeEventListener("mouseenter", handleMouseEnter);
+        el.removeEventListener("mouseleave", handleMouseLeave);
+      });
     };
   }, []);
 
-  return <div className="custom-cursor" ref={cursorRef}></div>;
+  return (
+    <>
+      <div className="custom-cursor-inner bg-emerald-400" ref={cursorRef} />
+      <div className="custom-cursor-follower border-emerald-500/50" ref={followerRef} />
+    </>
+  );
 }

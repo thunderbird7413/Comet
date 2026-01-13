@@ -1,4 +1,7 @@
+"use client";
 import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import "./Speakers.css";
 
 export const speakers = [
@@ -60,6 +63,11 @@ export const creators = [
     designation: "Stand-Up Comedian",
     img: "/speakers/creator/Madhur.JPG",
   },
+  {
+    name: "Iqlipse Nova",
+    designation: "Influencer",
+    img: "/speakers/creator/iqlipse.jpg",
+  },
 ];
 
 export default function PastSpeakers() {
@@ -67,13 +75,27 @@ export default function PastSpeakers() {
     <>
       {/* -------------------- PAST SPEAKERS -------------------- */}
       <section className="past-speakers-section">
-        <h2 className="section-title cursor-hover">Exclusive Speakers</h2>
+        <motion.h2
+          className="section-title cursor-hover"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          Exclusive Speakers
+        </motion.h2>
 
         <div className="speakers-grid">
           {speakers.map((speaker, index) => (
             <div key={index} className="speaker-container">
               <div className="speaker-bubble">
-                <img src={speaker.img} alt={speaker.name} />
+                <Image
+                  src={speaker.img}
+                  alt={speaker.name}
+                  fill
+                  sizes="(max-width: 600px) 160px, 220px"
+                  className="speaker-image"
+                />
                 {/* <div className="speaker-overlay">{speaker.name}</div> */}
               </div>
               <p className="speaker-name">{speaker.name}</p>
@@ -85,13 +107,27 @@ export default function PastSpeakers() {
 
       {/* -------------------- CREATOR'S CONCLAVE -------------------- */}
       <section className="past-speakers-section">
-        <h2 className="section-title cursor-hover">Creator's Conclave</h2>
+        <motion.h2
+          className="section-title cursor-hover"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          Creator's Conclave
+        </motion.h2>
 
         <div className="speakers-grid">
           {creators.map((creator, index) => (
             <div key={index} className="speaker-container">
               <div className="speaker-bubble">
-                <img src={creator.img} alt={creator.name} />
+                <Image
+                  src={creator.img}
+                  alt={creator.name}
+                  fill
+                  sizes="(max-width: 600px) 160px, 220px"
+                  className="speaker-image"
+                />
                 {/* <div className="speaker-overlay">{creator.name}</div> */}
               </div>
               <p className="speaker-name">{creator.name}</p>

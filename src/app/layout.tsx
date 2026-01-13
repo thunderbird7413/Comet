@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Cursor from "@/components/Cursor";
+import Preloader from "@/components/Preloader/Preloader";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "COMET'26 — CDC, IIT Roorkee",
@@ -16,8 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Preloader />
         <Cursor />
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

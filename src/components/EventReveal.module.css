@@ -82,7 +82,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 60px;
-  grid-auto-rows: 360px;
+  grid-auto-rows: 250px;
   align-items: start;
   /* padding: 18px; */
   margin-top: 100px;
@@ -287,7 +287,7 @@
   top: auto;
   margin: 0;
   width: 100%;
-  height: 360px;
+  height: 250px;
   transform: translateY(8px) rotateY(180deg) scale(.98);
   opacity: 0.01;
 }

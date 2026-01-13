@@ -1,17 +1,19 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 // import "./timeline.css";
 
 export default function Timeline() {
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    // ... existing effect logic ...
     const revealOnScroll = () => {
       itemsRef.current.forEach((item) => {
         if (!item) return;
 
         const top = item.getBoundingClientRect().top;
-        
+
         if (top < window.innerHeight - 100) {
           item.classList.add("show");
         }
@@ -24,44 +26,52 @@ export default function Timeline() {
     return () => window.removeEventListener("scroll", revealOnScroll);
   }, []);
 
-const timelineData = [
-  {
-    title: "1500+ PARTICIPANTS NATIONWIDE",
-    desc: "An engaged community of students, creators, and professionals from across india, making the event a truly national odyssey."
-  },
-  {
-    title: "15+ DISTINGUISHED SPEAKERS",
-    desc: "A lineup of renowned experts and industry leaders who brought insight, experience, and transformational learning to comet’25."
-  },
-  {
-    title: "20+ WORKSHOPS CONDUCTED",
-    desc: "Immersive, hands-on sessions designed to upskill attendees, spark innovation, and ignite career-driven learning."
-  },
-  {
-    title: "10+ COMPETITIVE EVENTS",
-    desc: "A dynamic array of challenges and competitions that tested skill, strategy, and creativity across multiple domains."
-  },
-  {
-    title: "₹10L+ WORTH PRIZES DISTRIBUTED",
-    desc: "Recognizing talent and celebrating excellence with significant rewards that empowered and motivated participants."
-  }
-];
+  const timelineData = [
+    // ... data remains the same ...
+    {
+      title: "1500+ PARTICIPANTS NATIONWIDE",
+      desc: "An engaged community of students, creators, and professionals from across india, making the event a truly national odyssey."
+    },
+    {
+      title: "15+ DISTINGUISHED SPEAKERS",
+      desc: "A lineup of renowned experts and industry leaders who brought insight, experience, and transformational learning to comet’25."
+    },
+    {
+      title: "20+ WORKSHOPS CONDUCTED",
+      desc: "Immersive, hands-on sessions designed to upskill attendees, spark innovation, and ignite career-driven learning."
+    },
+    {
+      title: "10+ COMPETITIVE EVENTS",
+      desc: "A dynamic array of challenges and competitions that tested skill, strategy, and creativity across multiple domains."
+    },
+    {
+      title: "₹10L+ WORTH PRIZES DISTRIBUTED",
+      desc: "Recognizing talent and celebrating excellence with significant rewards that empowered and motivated participants."
+    }
+  ];
 
 
   return (
     <section className="timeline-section">
 
       <div className="timeline-container">
-        <h2 className="section-title cursor-hover">Our Impact</h2>
-        <div className="timeline-line"  style={{marginTop: "50px"}}></div>
+        <motion.h2
+          className="section-title cursor-hover"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          Our Impact
+        </motion.h2>
+        <div className="timeline-line" style={{ marginTop: "50px" }}></div>
 
         {timelineData.map((item, index) => (
           <div
             key={index}
             ref={(el) => { itemsRef.current[index] = el; }}
-            className={`timeline-item ${
-              index % 2 === 0 ? "timeline-item-left" : "timeline-item-right"
-            }`}
+            className={`timeline-item ${index % 2 === 0 ? "timeline-item-left" : "timeline-item-right"
+              }`}
           >
             <div className="timeline-card">
               <h2>{item.title}</h2>

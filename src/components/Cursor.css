@@ -1,22 +1,51 @@
-html, body, * {
+/* Cursor.css */
+html,
+body,
+* {
   cursor: none !important;
 }
-.custom-cursor {
+
+.custom-cursor-inner {
   position: fixed;
-  width: 20px;
-  height: 20px;
-  background: white;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: #34d399;
+  /* Emerald-400 */
   border-radius: 50%;
   pointer-events: none;
-  z-index: 999999;
-  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border 0.25s ease;
-  transform: translate(-50%, -50%); /* KEEP THIS */
+  z-index: 9999;
+  margin-left: -4px;
+  margin-top: -4px;
+  box-shadow: 0 0 10px #34d399;
 }
 
-/* BIG TRANSPARENT CIRCLE */
-.cursor-big {
-  width: 120px;
-  height: 120px;
-  background: rgba(109, 108, 108, 0);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+.custom-cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid rgba(52, 211, 153, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
+  /* GSAP handles translate */
+}
+
+.cursor-hover-active {
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.9);
+  filter: drop-shadow(0 0 5px #34d399);
+}
+
+/* Hide cursor on mobile */
+@media (hover: none) and (pointer: coarse) {
+
+  .custom-cursor-inner,
+  .custom-cursor-follower {
+    display: none;
+  }
 }
