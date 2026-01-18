@@ -33,7 +33,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={start ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 0.2, duration: 1.0, ease: "easeOut" }}
+          transition={{ delay: 0.1, duration: 1.0, ease: "easeOut" }}
         >
           <LiquidTitle text="COMET'26" />
         </motion.div>
@@ -41,7 +41,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={start ? { opacity: 1 } : {}}
-          transition={{ delay: 0.8, duration: 1 }}
+          transition={{ delay: 0.4, duration: 1 }}
         >
           <AnimatedSubtitle text="Where Vision Fuels Creation" />
         </motion.div>
@@ -51,7 +51,7 @@ export default function Hero() {
           className="hero-logos"
           initial={{ opacity: 0, y: 20 }}
           animate={start ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 1.2, duration: 0.8 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
         >
           <img src="/logos/iitr_3d.png" alt="IIT Roorkee" className="hero-logo" />
           <div className="logo-divider" />

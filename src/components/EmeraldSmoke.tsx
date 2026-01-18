@@ -69,7 +69,7 @@ export default function EmeraldSmoke({ start }: EmeraldSmokeProps) {
             <Clouds material={THREE.MeshBasicMaterial}>
                 <Cloud
                     seed={10}
-                    segments={50} // Reduced from 80 for performance
+                    segments={40} // Reduced from 80 for performance
                     bounds={boundsRef.current}
                     volume={15}
                     color="#10b981"
@@ -81,7 +81,7 @@ export default function EmeraldSmoke({ start }: EmeraldSmokeProps) {
                 />
                 <Cloud
                     seed={45}
-                    segments={30} // Reduced from 50 for performance
+                    segments={20} // Reduced from 50 for performance
                     bounds={boundsRef.current}
                     volume={10}
                     color="#022c22"

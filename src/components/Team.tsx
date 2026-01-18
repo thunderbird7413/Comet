@@ -37,7 +37,7 @@ const heads: TeamMember[] = [
 
 export default function TeamSection() {
     return (
-        <div className="team-wrapper">
+        <section id="members" className="team-wrapper">
             <motion.h2
                 className="section-title cursor-hover"
                 initial={{ opacity: 0, y: 30 }}
@@ -70,7 +70,7 @@ export default function TeamSection() {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
@@ -96,22 +96,20 @@ function Card3D({ member }: { member: TeamMember }) {
     };
 
     return (
-        <section id="members">
-            <div
-                ref={cardRef}
-                className="team-card"
-                onMouseMove={handleMove}
-                onMouseLeave={handleLeave}
-            >
-                <div className="team-img">
-                    <img src={member.img} alt={member.name} />
-                </div>
-
-                <div className="team-info">
-                    <h2>{member.name}</h2>
-                    <p>{member.role}</p>
-                </div>
+        <div
+            ref={cardRef}
+            className="team-card"
+            onMouseMove={handleMove}
+            onMouseLeave={handleLeave}
+        >
+            <div className="team-img">
+                <img src={member.img} alt={member.name} />
             </div>
-        </section>
+
+            <div className="team-info">
+                <h2>{member.name}</h2>
+                <p>{member.role}</p>
+            </div>
+        </div>
     );
 }

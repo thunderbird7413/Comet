@@ -29,11 +29,11 @@ export default function Timeline() {
   const timelineData = [
     // ... data remains the same ...
     {
-      title: "1500+ PARTICIPANTS NATIONWIDE",
+      title: "3000+ PARTICIPANTS NATIONWIDE",
       desc: "An engaged community of students, creators, and professionals from across india, making the event a truly national odyssey."
     },
     {
-      title: "15+ DISTINGUISHED SPEAKERS",
+      title: "30+ DISTINGUISHED SPEAKERS",
       desc: "A lineup of renowned experts and industry leaders who brought insight, experience, and transformational learning to comet’25."
     },
     {

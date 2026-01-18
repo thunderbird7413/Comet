@@ -51,11 +51,12 @@ export default function CosmicVideos() {
                     variants={containerVariants}
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
+                    style={{ display: "flex", justifyContent: "center" }}
                 >
-                    {/* LEFT COLUMN: Main Video */}
-                    <motion.div className="video-card main-video" variants={itemVariants}>
+                    {/* Main Video */}
+                    <motion.div className="video-card main-video" variants={itemVariants} style={{ maxWidth: "1000px", width: "100%" }}>
                         <video
-                            src={MAIN_VIDEO}
+                            src="/videos/video.mp4"
                             autoPlay
                             muted
                             loop
@@ -63,40 +64,9 @@ export default function CosmicVideos() {
                             className="object-cover w-full h-full"
                         />
                         <div className="video-overlay">
-                            <span className="video-caption">The Main Event</span>
+                            <span className="video-caption">COMET'25</span>
                         </div>
                     </motion.div>
-
-                    {/* RIGHT COLUMN: Stacked Videos */}
-                    <div className="side-videos">
-                        <motion.div className="video-card side-video-item" variants={itemVariants}>
-                            <video
-                                src={SIDE_VIDEO_TOP}
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className="object-cover w-full h-full"
-                            />
-                            <div className="video-overlay">
-                                <span className="video-caption">Cosmic Moments</span>
-                            </div>
-                        </motion.div>
-
-                        <motion.div className="video-card side-video-item" variants={itemVariants}>
-                            <video
-                                src={SIDE_VIDEO_BOTTOM}
-                                autoPlay
-                                muted
-                                loop
-                                playsInline
-                                className="object-cover w-full h-full"
-                            />
-                            <div className="video-overlay">
-                                <span className="video-caption">Aesthetic Vibes</span>
-                            </div>
-                        </motion.div>
-                    </div>
 
                 </motion.div>
             </div>

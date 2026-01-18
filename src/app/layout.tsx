@@ -3,6 +3,7 @@ import "./globals.css";
 import Cursor from "@/components/Cursor";
 import Preloader from "@/components/Preloader/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
+import BackgroundMusic from "@/components/BackgroundMusic";
 
 export const metadata: Metadata = {
   title: "COMET'26 — CDC, IIT Roorkee",
@@ -20,6 +21,7 @@ export default function RootLayout({
       <body>
         <Preloader />
         <Cursor />
+        <BackgroundMusic />
         <SmoothScroll>
           {children}
         </SmoothScroll>
