@@ -96,11 +96,12 @@ export default function About() {
           {/* DESCRIPTION */}
           <div className="about-description">
             <p className="highlight">
-              COMET’26, organized by the Career Development Cell, IIT Roorkee, is a flagship event designed to help students explore career paths and build practical skills.
+              COMET, organized by the Career Development Cell at IIT Roorkee, is a two-day flagship fest that empowers students to discover diverse career paths, build practical skills, and stand out through competitive events.
             </p>
             <p className="highlight">
-              Through workshops, competitions, panels, and networking sessions, <span className="highlight">COMET’26</span> connects academic learning with real-world experience and prepares students for <span className="highlight">future</span>opportunities with confidence.
+              Through high-impact workshops, insightful panel discussions, meaningful networking sessions, and inspiring guest lectures, <span className="highlight">COMET</span> bridges the gap between academia and industry, equipping students with real-world exposure and the confidence to excel in their <span className="highlight">future</span> careers.
             </p>
+
           </div>
         </div>
       </div>

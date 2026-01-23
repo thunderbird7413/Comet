@@ -30,11 +30,11 @@ export default function Timeline() {
     // ... data remains the same ...
     {
       title: "3000+ PARTICIPANTS NATIONWIDE",
-      desc: "An engaged community of students, creators, and professionals from across india, making the event a truly national odyssey."
+      desc: "An engaged community of students, creators, and professionals from across india."
     },
     {
       title: "30+ DISTINGUISHED SPEAKERS",
-      desc: "A lineup of renowned experts and industry leaders who brought insight, experience, and transformational learning to comet’25."
+      desc: "A lineup of renowned experts and industry leaders who brought insight, experience, and transformational learning."
     },
     {
       title: "20+ WORKSHOPS CONDUCTED",
