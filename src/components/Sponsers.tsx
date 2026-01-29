@@ -181,7 +181,7 @@ export default function WhoWeWorkWith() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        Sponsers
+        Sponsors
       </motion.h2>
 
 
