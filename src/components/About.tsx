@@ -72,8 +72,8 @@ export default function About() {
   return (
     <section id="about" ref={sectionRef}>
       <div className="about-section" style={{ overflow: "hidden" }}> {/* Overflow hidden to prevent scrollbar during cube enter */}
-        <div className="floating-cube cube-left"><img src="/Mask group (2).png"></img></div>
-        <div className="floating-cube cube-right"><img src="/Mask group (1).png"></img></div>
+        <div className="floating-cube cube-left"><img src="/Mask group (2).png" alt="Floating 3D Cube Left"></img></div>
+        <div className="floating-cube cube-right"><img src="/Mask group (1).png" alt="Floating 3D Cube Right"></img></div>
 
         <div className="about-container">
           {/* ABOUT US BADGE */}

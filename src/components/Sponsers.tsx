@@ -200,7 +200,7 @@ export default function WhoWeWorkWith() {
         >
           {partners.map((p, i) => (
             <div key={i} className="partner-card">
-              <img src={p.logo} className="partner-logo" />
+              <img src={p.logo} alt={`Sponsor ${i + 1}`} className="partner-logo" />
               <p className="partner-text">{p.text}</p>
             </div>
           ))}

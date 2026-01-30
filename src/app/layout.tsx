@@ -7,9 +7,46 @@ import SmoothScroll from "@/components/SmoothScroll";
 
 
 export const metadata: Metadata = {
-  title: "COMET'26 — CDC, IIT Roorkee",
-  description: "Designing the future.",
-  metadataBase: new URL("https://localhost"),
+  metadataBase: new URL("https://comet.iitr.ac.in"),
+  title: {
+    default: "COMET'26 — CDC, IIT Roorkee",
+    template: "%s | COMET'26",
+  },
+  description: "COMET is the annual techno-management fest of IIT Roorkee, organized by the Career Development Cell.",
+  keywords: ["COMET", "COMET 26", "COMET'26", "Comet IIT Roorkee", "Comet College Fest", "Comet Technical Fest", "Comet Cultural Fest", "IIT Roorkee", "Techno-Management Fest", "CDC", "Career Development Cell", "Hackathon", "Case Study", "Robotics", "Finance", "Coding"],
+  authors: [{ name: "Career Development Cell, IIT Roorkee" }],
+  creator: "Career Development Cell, IIT Roorkee",
+  publisher: "Career Development Cell, IIT Roorkee",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "COMET'26 — CDC, IIT Roorkee",
+    description: "Designing the future. Join us for the ultimate techno-management experience.",
+    url: "https://comet.iitr.ac.in",
+    siteName: "COMET'26",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "COMET'26 — CDC, IIT Roorkee",
+    description: "Designing the future. Join us for the ultimate techno-management experience.",
+    creator: "@cdc_iitr",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -20,6 +57,42 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Event",
+              "name": "COMET'26",
+              "startDate": "2026-03-01",
+              "endDate": "2026-03-02",
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "location": {
+                "@type": "Place",
+                "name": "IIT Roorkee",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Roorkee - Haridwar Highway",
+                  "addressLocality": "Roorkee",
+                  "postalCode": "247667",
+                  "addressRegion": "Uttarakhand",
+                  "addressCountry": "IN"
+                }
+              },
+              "image": [
+                "https://comet.iitr.ac.in/logos/cdc_3d.png",
+                "https://comet.iitr.ac.in/logos/iitr_3d.png"
+              ],
+              "description": "COMET is the annual techno-management fest of IIT Roorkee, organized by the Career Development Cell.",
+              "organizer": {
+                "@type": "Organization",
+                "name": "Career Development Cell, IIT Roorkee",
+                "url": "https://comet.iitr.ac.in"
+              }
+            })
+          }}
+        />
         <Script
           id="microsoft-clarity"
           strategy="afterInteractive"
