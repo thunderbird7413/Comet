@@ -1,4 +1,5 @@
 "use client";
+import "./Hero.css";
 import LiquidTitle from "@/components/LiquidTitle";
 import AnimatedSubtitle from "./AnimatedSubtitle";
 
@@ -29,22 +30,34 @@ export default function Hero() {
         </Canvas>
       </div>
 
-      <div className="hero-inner" style={{ isolation: "isolate" }}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={start ? { opacity: 1, scale: 1 } : {}}
-          transition={{ delay: 0.1, duration: 1.0, ease: "easeOut" }}
-        >
+      <div className="hero-inner" style={{ isolation: "isolate", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        {/* COMET'26 TITLE */}
+        <motion.div /* animation props */>
           <LiquidTitle text="COMET'26" />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={start ? { opacity: 1 } : {}}
-          transition={{ delay: 0.4, duration: 1 }}
-        >
+        {/* SUBTITLE */}
+        <motion.div /* animation props */>
           <AnimatedSubtitle text="Where Vision Fuels Creation" />
         </motion.div>
+
+        {/* FIXED REGISTER BUTTON SECTION */}
+        <motion.div
+          className="hero-action"
+          initial={{ opacity: 0, y: 10 }}
+          animate={start ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          <motion.a 
+            href="#register" 
+            className="hero-register-btn"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            REGISTER
+          </motion.a>
+        </motion.div>
+        
 
         {/* --- PARTNER LOGOS --- */}
         <motion.div
@@ -53,9 +66,9 @@ export default function Hero() {
           animate={start ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <img src="/logos/iitr_3d.png" alt="IIT Roorkee" className="hero-logo" />
+          <img src="/logos/iitr_3d-removebg-preview.png" alt="IIT Roorkee" className="hero-logo" />
           <div className="logo-divider" />
-          <img src="/logos/cdc_3d.png" alt="CDC IITR" className="hero-logo" />
+          <img src="/logos/cdc_3d-removebg-preview.png" alt="CDC IITR" className="hero-logo" />
         </motion.div>
       </div>
 

@@ -9,6 +9,10 @@ interface TeamMember {
     img: string;
 }
 
+const Professor: TeamMember[] = [
+    { name: "--------", role: "Professor", img: "/team/professor.jpeg" },
+];
+
 const convenors: TeamMember[] = [
     { name: "Kartik Garg", role: "Convenor", img: "/team/Kartik.jpeg" },
     { name: "Sumit Tiwari", role: "Convenor", img: "/team/Tiwari.jpg" },
@@ -18,15 +22,18 @@ const coConvenors: TeamMember[] = [
     { name: "Anusha Gupta", role: "Co-Convenor", img: "/team/Anusha.jpeg" },
     { name: "Lalit Jingar", role: "Co-Convenor", img: "/team/Lalit.jpg" },
     { name: "Kushagra", role: "Co-Convenor", img: "/team/Kushagra_Design.jpg" },
+    { name: "--------", role: "Co-Convenor", img: "/team/co-convenor.jpeg" }
+    
 ];
 
 const heads: TeamMember[] = [
     { name: "Vinayak Jat", role: "Web-D Head", img: "/team/vinayak.jpeg" },
     { name: "Bhoomi", role: "Design Head", img: "/team/Bhoomi Gupta_Design.jpg" },
-    { name: "Maulik Bansal", role: "Promotions Head", img: "/team/Moulik Bansal_proms.jpg" },
+    { name: "Moulik Bansal", role: "Promotions Head", img: "/team/Moulik Bansal_proms.jpg" },
     { name: "Arpita Mishra", role: "Promotions Head", img: "/team/Arpita Mishra_proms.jpg" },
     { name: "Nilesh", role: "Sponsorship & Outreach Head", img: "/team/Nilesh_Outreach.jpg" },
-    { name: "Ahraz Rafiq", role: "Sponsorship & Outreach Head", img: "/team/Ahraz_Rafiq_Spons_Outreach.jpg" },
+    { name: "Parth Mishra", role: "Outreach Head", img: "/team/head of out-reach.jpeg" },
+    { name: "-----", role: "Sponsorship Head", img: "/team/spons_head.jpeg" },
     { name: "Yashwant", role: "Video Editing Head", img: "/team/Yashwant.jpg" },
     { name: "Ashwini", role: "Marketing Head", img: "/team/Ashwin_Marketing.jpg" },
     { name: "Karthika", role: "Content Head", img: "/team/Karthika_content.jpg" },
@@ -39,7 +46,7 @@ export default function TeamSection() {
     return (
         <section id="members" className="team-wrapper">
             <motion.h2
-                className="section-title cursor-hover"
+                className="team-title cursor-hover"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -49,6 +56,14 @@ export default function TeamSection() {
             </motion.h2>
 
             <div className="team-container">
+
+                {/* --- ADDED: Professor Row --- */}
+                <div className="team-row professor-row">
+                    {Professor.map((member) => (
+                        <Card3D key={member.name} member={member} />
+                    ))}
+                </div>
+
                 {/* Convenors Row */}
                 <div className="team-row">
                     {convenors.map((member, i) => (

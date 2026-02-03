@@ -57,13 +57,35 @@
 }
 
 /* ===== HUGE BRAND TEXT ===== */
-.footer-brand {
-  font-size: 180px;
-  font-weight: 700;
-  margin: 40px 0 60px;
-  color: #e9e9e9;
-  line-height: 0.85;
-  text-transform: uppercase;
+.footer-brand-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0; /* Creates space above the bottom copyright bar */
+  width: 100%;
+}
+
+.footer-brand-logo {
+  height: 140px; /* Adjust size to match the original 'COMET' text impact */
+  width: auto;
+  object-fit: contain;
+  
+  /* Fixing the 'Weird' look: */
+  /* 1. Adds an emerald glow that matches your COMET'26 title */
+  filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.6)); 
+  
+  /* 2. If the image has a white/black background, this helps blend it */
+  mix-blend-mode: screen; 
+  
+  /* 3. Soften the edges if it's too sharp */
+  border-radius: 12px;
+  
+  transition: all 0.4s ease;
+}
+
+.footer-brand-logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 35px rgba(16, 185, 129, 0.9));
 }
 
 /* ===== BOTTOM SECTION ===== */
@@ -80,7 +102,24 @@
 /* ===== Social Links ===== */
 .footer-socials {
   display: flex;
-  gap: 35px;
+  gap: 20px; /* Adjusted for better icon spacing */
+  align-items: center; /* Ensures icons are vertically centered */
+}
+
+/* Updated selector to handle icon-only links */
+.footer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #eaeaea;
+  transition: all 0.3s ease;
+  padding: 4px;
+}
+
+.footer-socials a:hover {
+  color: #10b981; /* Emerald green glow on hover */
+  transform: translateY(-3px); /* Subtle lift effect */
+  opacity: 1; /* Override original opacity hover */
 }
 
 .footer-link {
@@ -105,13 +144,18 @@
   text-transform: uppercase;
 }
 .footer-icon {
-  width: 18px;
-  height: 18px;
-  /* margin-right: 10px; */
-  color: #e5e5e5;
-  opacity: 0.9;
-  font-weight: bold;
+  width: 20px; /* Slightly larger for better visibility */
+  height: 20px;
+  color: inherit; /* Allows parent hover color to apply to icon */
+  flex-shrink: 0;
+  transition: color 0.3s ease;
 }
+
+.footer-brand {
+  pointer-events: none; /* Prevents the huge text from blocking clicks on links */
+}
+
+
 .footer-left-menu p,
 .footer-newsletter p,
 .footer-location p {
