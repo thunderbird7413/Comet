@@ -62,12 +62,7 @@ export default function Navbar() {
         </nav>
       </div>
 
-      <button
-        className="register desktop-register"
-        ref={registerRef}
-      >
-        REGISTER
-      </button>
+    
 
       <button
         aria-label="Toggle navigation"
@@ -88,9 +83,7 @@ export default function Navbar() {
           <a href="#events" onClick={handleNavClick}>MEMBERS</a>
           <a href="#events" onClick={handleNavClick}>CONTACT</a>
         </nav>
-        <a className="mobile-register" href="#register" onClick={handleNavClick}>
-          REGISTER
-        </a>
+        
       </div>
     </header>
   );
