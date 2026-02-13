@@ -9,9 +9,7 @@ interface TeamMember {
     img: string;
 }
 
-const Professor: TeamMember[] = [
-    { name: "--------", role: "Professor", img: "/team/professor.jpeg" },
-];
+
 
 const convenors: TeamMember[] = [
     { name: "Kartik Garg", role: "Convenor", img: "/team/Kartik.jpeg" },
@@ -22,7 +20,7 @@ const coConvenors: TeamMember[] = [
     { name: "Anusha Gupta", role: "Co-Convenor", img: "/team/Anusha.jpeg" },
     { name: "Lalit Jingar", role: "Co-Convenor", img: "/team/Lalit.jpg" },
     { name: "Kushagra", role: "Co-Convenor", img: "/team/Kushagra_Design.jpg" },
-    { name: "--------", role: "Co-Convenor", img: "/team/co-convenor.jpeg" }
+    { name: "Parth  Mishra", role: "Co-Convenor", img: "/team/parth.jpeg" }
     
 ];
 
@@ -32,14 +30,18 @@ const heads: TeamMember[] = [
     { name: "Moulik Bansal", role: "Promotions Head", img: "/team/Moulik Bansal_proms.jpg" },
     { name: "Arpita Mishra", role: "Promotions Head", img: "/team/Arpita Mishra_proms.jpg" },
     { name: "Nilesh", role: "Sponsorship & Outreach Head", img: "/team/Nilesh_Outreach.jpg" },
-    { name: "Parth Mishra", role: "Outreach Head", img: "/team/head of out-reach.jpeg" },
-    { name: "-----", role: "Sponsorship Head", img: "/team/spons_head.jpeg" },
-    { name: "Yashwant", role: "Video Editing Head", img: "/team/Yashwant.jpg" },
+    { name: "Mohit Sharma", role: "Outreach Head", img: "/team/mohit.jpeg" },
+    { name: "Amey Joshi", role: "Sponsorship Head", img: "/team/amey.jpeg" },
     { name: "Ashwini", role: "Marketing Head", img: "/team/Ashwin_Marketing.jpg" },
     { name: "Karthika", role: "Content Head", img: "/team/Karthika_content.jpg" },
     { name: "Fazil", role: "Operations Head", img: "/team/Fazil_Operations.jpg" },
     { name: "Pranjal", role: "Events Head", img: "/team/Pranjal.jpg" },
 ];
+
+const Professor: TeamMember[] = [
+    { name: "R.K Dutta", role: "Professor", img: "/team/professor.jpeg" },
+];
+
 
 
 export default function TeamSection() {
@@ -56,13 +58,6 @@ export default function TeamSection() {
             </motion.h2>
 
             <div className="team-container">
-
-                {/* --- ADDED: Professor Row --- */}
-                <div className="team-row professor-row">
-                    {Professor.map((member) => (
-                        <Card3D key={member.name} member={member} />
-                    ))}
-                </div>
 
                 {/* Convenors Row */}
                 <div className="team-row">
@@ -84,6 +79,15 @@ export default function TeamSection() {
                         <Card3D key={member.name} member={member} />
                     ))}
                 </div>
+
+                {/* --- ADDED: Professor Row --- */}
+                <div className="team-row professor-row">
+                    {Professor.map((member) => (
+                        <Card3D key={member.name} member={member} />
+                    ))}
+                </div>
+
+
             </div>
         </section>
     );

@@ -28,24 +28,23 @@ const Footer = () => {
 
           {/* LOCATION SECTION */}
           <div className="footer-location">
-            <h2>Location</h2>
-            {/* The Google Maps link you requested */}
-            <p>
-              <a 
-                href="https://www.google.com/maps/search/?api=1&query=IIT+Roorkee+Uttarakhand+India" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                <MapPin className="footer-icon" /> IIT Roorkee, Uttarakhand, India
-              </a>
-            </p>
-          </div>
+          <h2>Location</h2>
+          <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3460.016550221375!2d77.89304487616147!3d29.8654464264214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390eb3650bfe37a7%3A0xad919b15af050467!2sIndian%20Institute%20Of%20Technology%20Roorkee!5e0!3m2!1sen!2sin!4v1707860000000!5m2!1sen!2sin"
+          width="100%"
+          height="350" /* Slightly taller for that 'enlarged' look */
+          style={{ border: 0 }}
+          allowFullScreen={true}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="footer-map"
+          ></iframe>
+        </div>
         </div>
 
         <div className="footer-brand-container">
          <img 
-            src="/logos/cdc_3d.png" 
+            src="/logos/comet-end logo.png" 
             alt="COMET Logo" 
             className="footer-brand-logo" 
          />

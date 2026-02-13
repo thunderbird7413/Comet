@@ -169,6 +169,34 @@
   margin-bottom: 10px;
   font-size: 22px;
 }
+/* src/components/Footer.css */
+
+.footer-location {
+  flex: 1.5; /* Gives the location section more horizontal space */
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the map and heading */
+}
+
+.footer-map {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 450px; /* Enlarge the overall map width */
+  height: 300px; /* Enlarge the overall map height */
+  border-radius: 15px; /* Softer rounded corners */
+  border: 1px solid rgba(16, 185, 129, 0.3); /* Subtle emerald border */
+  
+  /* Enhanced Emerald Glow */
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.footer-map:hover {
+  transform: scale(1.02); /* Subtle zoom-in effect on hover */
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
+}
+
 /* .comet-footer {
   position: fixed;
   bottom: 0;
