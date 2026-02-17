@@ -9,6 +9,10 @@ interface TeamMember {
     img: string;
 }
 
+const professors: TeamMember[] = [
+    { name: "Prof. R.K. Dutta", role: "Professor In-Charge", img: "/team/RK Dutta.jpeg" },
+];
+
 const convenors: TeamMember[] = [
     { name: "Kartik Garg", role: "Convenor", img: "/team/Kartik.jpeg" },
     { name: "Sumit Tiwari", role: "Convenor", img: "/team/Tiwari.jpg" },
@@ -18,15 +22,18 @@ const coConvenors: TeamMember[] = [
     { name: "Anusha Gupta", role: "Co-Convenor", img: "/team/Anusha.jpeg" },
     { name: "Lalit Jingar", role: "Co-Convenor", img: "/team/Lalit.jpg" },
     { name: "Kushagra", role: "Co-Convenor", img: "/team/Kushagra_Design.jpg" },
+    { name: "Parth Mishra", role: "Co-Convenor", img: "/team/Parth Mishra.jpeg" },
 ];
 
 const heads: TeamMember[] = [
     { name: "Vinayak Jat", role: "Web-D Head", img: "/team/vinayak.jpeg" },
     { name: "Bhoomi", role: "Design Head", img: "/team/Bhoomi Gupta_Design.jpg" },
-    { name: "Maulik Bansal", role: "Promotions Head", img: "/team/Moulik Bansal_proms.jpg" },
+    { name: "Moulik Bansal", role: "Promotions Head", img: "/team/Moulik Bansal_proms.jpg" },
     { name: "Arpita Mishra", role: "Promotions Head", img: "/team/Arpita Mishra_proms.jpg" },
     { name: "Nilesh", role: "Sponsorship & Outreach Head", img: "/team/Nilesh_Outreach.jpg" },
     { name: "Ahraz Rafiq", role: "Sponsorship & Outreach Head", img: "/team/Ahraz_Rafiq_Spons_Outreach.jpg" },
+    { name: "Amey Joshi", role: "Sponsorship Head", img: "/team/Amay Joshi.jpeg" },
+    { name: "Mohit Sharma", role: "Outreach Head", img: "/team/Mohit Sharma.jpeg" },
     { name: "Yashwant", role: "Video Editing Head", img: "/team/Yashwant.jpg" },
     { name: "Ashwini", role: "Marketing Head", img: "/team/Ashwin_Marketing.jpg" },
     { name: "Karthika", role: "Content Head", img: "/team/Karthika_content.jpg" },
@@ -49,6 +56,13 @@ export default function TeamSection() {
             </motion.h2>
 
             <div className="team-container">
+                {/* Professors Row */}
+                <div className="team-row">
+                    {professors.map((member, i) => (
+                        <Card3D key={member.name} member={member} />
+                    ))}
+                </div>
+
                 {/* Convenors Row */}
                 <div className="team-row">
                     {convenors.map((member, i) => (

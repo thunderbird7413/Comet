@@ -15,6 +15,7 @@ import Workshops from "@/components/Workshops"
 
 
 import CosmicVideos from "@/components/CosmicVideos";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
       <PastSpeakers />
       <Sponsers />
       <TeamSection />
+      <Testimonials />
       <Footer />
       {/* <Workshops /> */}
     </main>

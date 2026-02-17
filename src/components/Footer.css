@@ -36,8 +36,9 @@
   gap: 60px;
   flex-wrap: wrap;
 }
+
 .footer-top p {
-  font-family:Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif
 }
 
 .footer-column p {
@@ -58,12 +59,11 @@
 
 /* ===== HUGE BRAND TEXT ===== */
 .footer-brand {
-  font-size: 180px;
-  font-weight: 700;
-  margin: 40px 0 60px;
-  color: #e9e9e9;
-  line-height: 0.85;
-  text-transform: uppercase;
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  margin: 40px auto 60px;
+  display: block;
 }
 
 /* ===== BOTTOM SECTION ===== */
@@ -104,6 +104,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
 }
+
 .footer-icon {
   width: 18px;
   height: 18px;
@@ -112,6 +113,7 @@
   opacity: 0.9;
   font-weight: bold;
 }
+
 .footer-left-menu p,
 .footer-newsletter p,
 .footer-location p {
@@ -121,10 +123,29 @@
   margin: 6px 0;
   font-size: 18px;
 }
+
 .footer-location h2 {
   margin-bottom: 10px;
   font-size: 22px;
 }
+
+/* Map Wrapper */
+.footer-map-wrapper {
+  margin-top: 10px;
+  max-width: 300px;
+  filter: grayscale(100%) invert(90%);
+  /* Dark mode map effect */
+  transition: filter 0.3s ease;
+}
+
+.footer-map-wrapper:hover {
+  filter: grayscale(0%) invert(0%);
+}
+
+.footer-map-wrapper iframe {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 /* .comet-footer {
   position: fixed;
   bottom: 0;
@@ -137,9 +158,7 @@
 
 /* Tablets */
 @media (max-width: 1000px) {
-  .footer-brand {
-    font-size: 130px;
-  }
+  /* .footer-brand font-size removed */
 
   .footer-top {
     gap: 40px;
@@ -157,8 +176,12 @@
     gap: 35px;
   }
 
+  .footer-map-wrapper {
+    max-width: 100%;
+  }
+
   .footer-brand {
-    font-size: 90px;
+    /* font-size: 90px; removed */
     text-align: center;
   }
 
@@ -175,9 +198,7 @@
 
 /* Extra small */
 @media (max-width: 480px) {
-  .footer-brand {
-    font-size: 70px;
-  }
+  /* .footer-brand font-size removed */
 
   .footer-heading {
     font-size: 18px;

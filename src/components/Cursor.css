@@ -15,7 +15,8 @@ body,
   /* Emerald-400 */
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 10001;
+  /* High z-index to be above modal */
   margin-left: -4px;
   margin-top: -4px;
   box-shadow: 0 0 10px #34d399;
@@ -30,7 +31,8 @@ body,
   border: 1.5px solid rgba(52, 211, 153, 0.6);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
+  z-index: 10000;
+  /* High z-index to be above modal */
   transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
   /* GSAP handles translate */
 }
