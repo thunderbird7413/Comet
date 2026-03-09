@@ -101,7 +101,6 @@ export default function Testimonials() {
             <div className={styles.container}>
                 <div className={styles.headingWrapper}>
                     <h2 className={styles.title}>Voices of Comet</h2>
-                    <p className={styles.subtitle}>What our speakers had to say</p>
                 </div>
             </div>
 

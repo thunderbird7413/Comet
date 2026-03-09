@@ -27,8 +27,6 @@
   width: 100%;
   max-width: 1300px;
   justify-items: center;
-  perspective: 1000px;
-  /* 🔥 REQUIRED FOR 3D HOVER TO WORK */
 }
 
 
@@ -39,17 +37,8 @@
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   background: radial-gradient(circle at top, #222, #000);
-  transform-style: preserve-3d;
-  will-change: transform;
-  /* 🔥 Hardware Acceleration */
-}
-
-.speaker-bubble:hover {
-  transform: scale(1.08) rotateX(10deg) rotateY(-10deg) !important;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7) !important;
 }
 
 /* Updated selector to target Image component */
@@ -61,9 +50,7 @@
 }
 
 
-.speaker-bubble:hover img {
-  opacity: 0.3 !important;
-}
+
 
 
 .speaker-overlay {
@@ -80,9 +67,7 @@
 }
 
 
-.speaker-bubble:hover .speaker-overlay {
-  opacity: 1 !important;
-}
+
 
 /* Wrapper for bubble + text */
 .speaker-container {

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import "./Workshops.css";
 import Modal from "./Modal";
@@ -62,7 +61,7 @@ export default function Cards() {
 
       <div className="cards-grid">
         {cardData.map((item, index) => (
-          <Tilt key={index} tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={2500} className="card-tilt">
+          <div key={index} className="card-tilt">
             <div
               className="card"
               onClick={() => setSelectedWorkshop(item)}
@@ -77,7 +76,7 @@ export default function Cards() {
                 <p>{item.desc}</p>
               </div>
             </div>
-          </Tilt>
+          </div>
         ))}
       </div>
 

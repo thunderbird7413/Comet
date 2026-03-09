@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import "./Team.css";
 
@@ -31,7 +31,6 @@ const heads: TeamMember[] = [
     { name: "Moulik Bansal", role: "Promotions Head", img: "/team/Moulik Bansal_proms.jpg" },
     { name: "Arpita Mishra", role: "Promotions Head", img: "/team/Arpita Mishra_proms.jpg" },
     { name: "Nilesh", role: "Sponsorship & Outreach Head", img: "/team/Nilesh_Outreach.jpg" },
-    { name: "Ahraz Rafiq", role: "Sponsorship & Outreach Head", img: "/team/Ahraz_Rafiq_Spons_Outreach.jpg" },
     { name: "Amey Joshi", role: "Sponsorship Head", img: "/team/Amay Joshi.jpeg" },
     { name: "Mohit Sharma", role: "Outreach Head", img: "/team/Mohit Sharma.jpeg" },
     { name: "Yashwant", role: "Video Editing Head", img: "/team/Yashwant.jpg" },
@@ -89,33 +88,8 @@ export default function TeamSection() {
 }
 
 function Card3D({ member }: { member: TeamMember }) {
-    const cardRef = useRef<HTMLDivElement>(null);
-
-    const handleMove = (e: React.MouseEvent) => {
-        const card = cardRef.current!;
-        const rect = card.getBoundingClientRect();
-
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-
-        const rotateX = (y - 0.5) * -20;
-        const rotateY = (x - 0.5) * 20;
-
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    };
-
-    const handleLeave = () => {
-        const card = cardRef.current!;
-        card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-    };
-
     return (
-        <div
-            ref={cardRef}
-            className="team-card"
-            onMouseMove={handleMove}
-            onMouseLeave={handleLeave}
-        >
+        <div className="team-card">
             <div className="team-img">
                 <img src={member.img} alt={member.name} />
             </div>

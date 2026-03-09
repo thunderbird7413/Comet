@@ -18,6 +18,7 @@ export default function Preloader() {
 
         if (!title || !subtitle || !containerRef.current || !flashRef.current || !textRef.current) return;
 
+        window.scrollTo(0, 0);
         document.body.style.overflow = "hidden";
 
         const tl = gsap.timeline();
