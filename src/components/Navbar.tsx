@@ -54,10 +54,10 @@ export default function Navbar() {
 
       <div className="nav-wrap" ref={navRef}>
         <nav className="nav desktop-nav">
-          <a href="#home">HOME</a>
-          <a href="#about">ABOUT</a>
+          <a href="/">HOME</a>
+          <a href="/workshops">WORKSHOPS</a>
           <a href="#events">EVENTS</a>
-          <a href="#members">MEMBERS</a>
+          <a href="/members">MEMBERS</a>
           <a href="#contact">CONTACT</a>
         </nav>
       </div>
@@ -83,9 +83,9 @@ export default function Navbar() {
       <div className={`mobile-menu ${open ? "open" : ""}`}>
         <nav>
           <a href="#home" onClick={handleNavClick}>HOME</a>
-          <a href="#about" onClick={handleNavClick}>ABOUT</a>
+          <a href="/workshops" onClick={handleNavClick}>WORKSHOPS</a>
           <a href="#events" onClick={handleNavClick}>EVENTS</a>
-          <a href="#events" onClick={handleNavClick}>MEMBERS</a>
+          <a href="/members" onClick={handleNavClick}>MEMBERS</a>
           <a href="#events" onClick={handleNavClick}>CONTACT</a>
         </nav>
         <a className="mobile-register" href="#register" onClick={handleNavClick}>

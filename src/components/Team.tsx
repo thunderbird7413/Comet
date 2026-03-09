@@ -51,7 +51,7 @@ export default function TeamSection() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true }}
             >
-                Team Members
+                Esteemed Members
             </motion.h2>
 
             <div className="team-container">

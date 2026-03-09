@@ -1,54 +1,40 @@
 "use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import "./Workshops.css";
-import Modal from "./Modal";
 
-export default function Cards() {
-  const [selectedWorkshop, setSelectedWorkshop] = useState<typeof cardData[0] | null>(null);
+const cardData = [
+  {
+    title: "Project Management",
+    desc: "Learn planning, execution, and real-world project handling with structured industry insights.",
+    img: "/nworkshop/project.jpg",
+  },
+  {
+    title: "Blockchain",
+    desc: "Explore blockchain basics, smart contracts, decentralized systems, and their real-world applications.",
+    img: "/nworkshop/blockchain.jpg",
+  },
+  {
+    title: "Financial Taxation",
+    desc: "Understand taxation fundamentals, regulations, and practical financial decision-making strategies.",
+    img: "/nworkshop/finance.jpg",
+  },
+  {
+    title: "Improv Workshop",
+    desc: "Boost creativity, spontaneity, and communication skills through dynamic improvisation activities.",
+    img: "/nworkshop/improv.jpg",
+  },
+];
 
-  const cardData = [
-    {
-      title: "Project Management Workshop",
-      desc: "Learn planning, execution, and real-world project handling with structured industry insights.",
-      detailedDesc: `This workshop equips attendees with essential project management concepts such as planning, execution, monitoring, and resource allocation. Participants learn industry-relevant strategies for handling complex tasks efficiently.\n\nThe session includes real examples, insights, and structured guidance to build managerial competence. It prepares participants to apply PM skills in academic, professional, and team-based projects.`,
-      img: "/workshop/workshop_project.jpeg",
-    },
-    {
-      title: "Blockchain Workshop",
-      desc: "Explore blockchain basics, smart contracts, decentralized systems, and their real-world applications.",
-      detailedDesc: `This session introduces participants to blockchain fundamentals, architecture, and applications across industries. It explores decentralized systems, cryptocurrencies, smart contracts, and their future potential.\n\nParticipants gain insights into how blockchain is transforming digital systems and learn where the technology is heading. The workshop is valuable for beginners interested in Web3 and modern computational frameworks.`,
-      img: "/workshop/workshop_blockchain.jpeg",
-    },
-    {
-      title: "Financial Taxation Workshop",
-      desc: "Understand taxation fundamentals, regulations, and practical financial decision-making strategies.",
-      detailedDesc: `This workshop simplifies taxation concepts and explains strategies for managing tax-related matters. Participants gain clarity on financial regulations and common taxation practices.\n\nThrough expert-led discussions, attendees understand how taxation operates in real-world scenarios. The workshop strengthens financial literacy and prepares students for better personal and professional financial decisions.`,
-      img: "/workshop/workshop_finance.jpeg",
-    },
-    {
-      title: "Improv Workshop",
-      desc: "Boost creativity, spontaneity, and communication skills through dynamic improvisation activities.",
-      detailedDesc: `The Improv Workshop sharpens creativity, communication, and adaptability through improvisation techniques. Participants engage in guided activities that build confidence and spontaneous thinking.\n\nThe workshop creates a supportive environment for personal expression and teamwork. It is ideal for students looking to improve presentation, collaboration, and creative problem-solving abilities.`,
-      img: "/workshop/worksop_improv.jpeg",
-    },
-    {
-      title: "Trading Workshop",
-      desc: "Learn market fundamentals, trading logic, and smart strategies for financial decision-making.",
-      detailedDesc: `The Trading Workshop covers market principles, trading fundamentals, and investor psychology. Participants learn strategies for analyzing financial markets and making informed trading decisions.\n\nThe session builds strong conceptual understanding and introduces analytical approaches used in market evaluation. It is highly beneficial for students interested in stock markets, finance, and real-time decision-making.`,
-      img: "/workshop/workshop_trading.jpeg",
-    },
-    {
-      title: "PG Pathways Workshop",
-      desc: "Get structured guidance for CAT, GMAT, and GRE with strategies to improve speed and accuracy.",
-      detailedDesc: `The PG Pathways workshop provides participants with structured strategies to prepare for CAT, GMAT, and GRE exams. It focuses on time management, test-taking efficiency, and effective problem-solving approaches suited for competitive exams. Through guided instruction and practical insights, attendees understand how to tackle questions with accuracy and speed.\n\nThe workshop also helps learners identify their strengths, improve analytical reasoning, and develop exam-ready skills. Participants gain valuable clarity on preparation techniques and walk away with enhanced confidence for their postgraduate entrance journeys.`,
-      img: "/workshop/workshop_pgpathways.jpeg",
-    }
-  ];
+export default function Workshops() {
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  const handleCardClick = (index: number) => {
+    setActiveIndex(index);
+  };
 
   return (
-    <div className="cards-container">
+    <section className="ws-section">
       <motion.h2
         className="section-title"
         initial={{ opacity: 0, y: 30 }}
@@ -59,34 +45,66 @@ export default function Cards() {
         Our Workshops
       </motion.h2>
 
-      <div className="cards-grid">
-        {cardData.map((item, index) => (
-          <div key={index} className="card-tilt">
-            <div
-              className="card"
-              onClick={() => setSelectedWorkshop(item)}
-              style={{ cursor: "pointer" }}
-            >
-              <div className="card-img-wrapper">
-                <img src={item.img} alt={item.title} className="card-img" />
-              </div>
-
-              <div className="card-content">
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            </div>
+      <div className="ws-layout">
+        {/* Left Panel — Details */}
+        <motion.div
+          className="ws-details"
+          key={activeIndex}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+        >
+          <span className="ws-label">WORKSHOP {String(activeIndex + 1).padStart(2, "0")}</span>
+          <h3 className="ws-title">{cardData[activeIndex].title}</h3>
+          <p className="ws-desc">{cardData[activeIndex].desc}</p>
+          <div className="ws-nav">
+            {cardData.map((_, i) => (
+              <button
+                key={i}
+                className={`ws-dot ${i === activeIndex ? "active" : ""}`}
+                onClick={() => setActiveIndex(i)}
+              />
+            ))}
           </div>
-        ))}
-      </div>
+          <a href="/workshops" className="ws-explore-btn">
+            <span>Explore All</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+        </motion.div>
 
-      <Modal
-        isOpen={!!selectedWorkshop}
-        onClose={() => setSelectedWorkshop(null)}
-        title={selectedWorkshop?.title || ""}
-        image={selectedWorkshop?.img || ""}
-        content={selectedWorkshop?.detailedDesc || ""}
-      />
-    </div>
+        {/* Right Panel — Overlapping Horizontal Cards */}
+        <div className="ws-cards-row">
+          {cardData.map((item, index) => {
+            const isActive = index === activeIndex;
+
+            return (
+              <motion.div
+                key={index}
+                className={`ws-card ${isActive ? "active" : ""}`}
+                onClick={() => handleCardClick(index)}
+                animate={{
+                  scale: isActive ? 1.12 : 1,
+                  y: isActive ? -12 : 0,
+                }}
+                transition={{ type: "spring", stiffness: 280, damping: 24 }}
+                style={{ zIndex: isActive ? 10 : 1 }}
+              >
+                <div className="ws-card-inner">
+                  <img src={item.img} alt={item.title} className="ws-card-img" />
+                  {/* Dark overlay */}
+                  <div className={`ws-card-overlay ${isActive ? "dimmed" : ""}`} />
+                  {/* Title on image at bottom */}
+                  <div className="ws-card-title">
+                    <span>{item.title}</span>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

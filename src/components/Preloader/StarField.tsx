@@ -9,7 +9,7 @@ export default function StarField() {
     const pointsRef = useRef<THREE.Points>(null);
 
     // Create thousands of stars
-    const count = 5000;
+    const count = 2000;
     const { positions, sizes } = useMemo(() => {
         const pos = new Float32Array(count * 3);
         const sz = new Float32Array(count);

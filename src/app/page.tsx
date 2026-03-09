@@ -9,9 +9,7 @@ import Zoom from "@/components/Zoom";
 import PastSpeakers from "@/components/Speakers";
 import Sponsers from "@/components/Sponsers";
 import Footer from "@/components/Footer";
-import TeamSection from "@/components/Team";
 import Workshops from "@/components/Workshops"
-// import Workshops from "@/components/Workshops";
 
 
 import CosmicVideos from "@/components/CosmicVideos";
@@ -33,11 +31,8 @@ export default function Home() {
       <CosmicVideos />
       <PastSpeakers />
       <Sponsers />
-      <TeamSection />
       <Testimonials />
       <Footer />
-      {/* <Workshops /> */}
     </main>
   );
 }
-

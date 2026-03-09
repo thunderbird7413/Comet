@@ -1,0 +1,383 @@
+/* ─────────────── PAGE ─────────────── */
+.wkp-page {
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ─────────────── BACKGROUND ─────────────── */
+.wkp-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.wkp-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+}
+
+.wkp-glow-1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -150px;
+    background: radial-gradient(circle, rgba(13, 231, 133, 0.4), transparent 70%);
+}
+
+.wkp-glow-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -100px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(0, 180, 120, 0.3), transparent 70%);
+}
+
+/* Subtle grid pattern */
+.wkp-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(13, 231, 133, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 231, 133, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+/* ─────────────── HERO ─────────────── */
+.wkp-hero {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 160px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.wkp-hero-label {
+    font-family: "Courier New", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: #0de785;
+    text-transform: uppercase;
+}
+
+.wkp-hero-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #fff 40%, #0de785);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin: 0;
+}
+
+.wkp-hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.55);
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+/* ─────────────── CARDS GRID ─────────────── */
+.wkp-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 35px;
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    padding: 0 40px;
+}
+
+/* ─────────────── CARD ─────────────── */
+.wkp-card {
+    position: relative;
+    cursor: pointer;
+    height: 300px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    /* Thick emerald border via background showing through clip-path */
+    background: rgba(13, 231, 133, 0.35);
+    /* All-corner cuts for landscape cards */
+    clip-path: polygon(18px 0%,
+            calc(100% - 18px) 0%,
+            100% 18px,
+            100% calc(100% - 18px),
+            calc(100% - 18px) 100%,
+            18px 100%,
+            0% calc(100% - 18px),
+            0% 18px);
+}
+
+.wkp-card:hover {
+    background: rgba(13, 231, 133, 0.6);
+}
+
+.wkp-card:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 10px 40px rgba(13, 231, 133, 0.15);
+}
+
+/* ─── Card Image ─── */
+.wkp-card-img-wrap {
+    position: absolute;
+    inset: 3px;
+    overflow: hidden;
+    /* Inner clip to match outer shape */
+    clip-path: polygon(15px 0%,
+            calc(100% - 15px) 0%,
+            100% 15px,
+            100% calc(100% - 15px),
+            calc(100% - 15px) 100%,
+            15px 100%,
+            0% calc(100% - 15px),
+            0% 15px);
+}
+
+.wkp-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.wkp-card:hover .wkp-card-img {
+    transform: scale(1.08);
+}
+
+/* Emerald tint overlay */
+.wkp-card-emerald {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(0, 30, 18, 0.6) 0%,
+            rgba(13, 231, 133, 0.12) 60%,
+            rgba(0, 40, 25, 0.55) 100%);
+    transition: opacity 0.4s ease;
+}
+
+.wkp-card:hover .wkp-card-emerald {
+    opacity: 0.5;
+}
+
+/* ─── Card Footer ─── */
+.wkp-card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px 22px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+    z-index: 2;
+}
+
+.wkp-card-footer h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+/* ─── Corner Accents (all 4 corners) ─── */
+.wkp-corner {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    pointer-events: none;
+    z-index: 3;
+    transition: border-color 0.3s ease;
+}
+
+.wkp-corner-tl {
+    top: 0;
+    left: 0;
+    border-top: 3px solid rgba(13, 231, 133, 0.5);
+    border-left: 3px solid rgba(13, 231, 133, 0.5);
+}
+
+.wkp-corner-tr {
+    top: 0;
+    right: 0;
+    border-top: 3px solid rgba(13, 231, 133, 0.5);
+    border-right: 3px solid rgba(13, 231, 133, 0.5);
+}
+
+.wkp-corner-bl {
+    bottom: 0;
+    left: 0;
+    border-bottom: 3px solid rgba(13, 231, 133, 0.5);
+    border-left: 3px solid rgba(13, 231, 133, 0.5);
+}
+
+.wkp-corner-br {
+    bottom: 0;
+    right: 0;
+    border-bottom: 3px solid rgba(13, 231, 133, 0.5);
+    border-right: 3px solid rgba(13, 231, 133, 0.5);
+}
+
+.wkp-card:hover .wkp-corner {
+    border-color: rgba(13, 231, 133, 0.9);
+}
+
+/* ─────────────── MODAL ─────────────── */
+.wkp-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.wkp-modal {
+    background: #0a0a0a;
+    border: 3px solid rgba(13, 231, 133, 0.4);
+    box-shadow: 0 0 60px rgba(13, 231, 133, 0.15), 0 0 120px rgba(13, 231, 133, 0.05);
+    width: 100%;
+    max-width: 700px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.wkp-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.wkp-modal-close:hover {
+    background: #0de785;
+    color: #000;
+    border-color: #0de785;
+    transform: rotate(90deg);
+}
+
+/* Modal Image */
+.wkp-modal-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.wkp-modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.wkp-modal-img-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+}
+
+/* Modal Body */
+.wkp-modal-body {
+    padding: 0 30px 30px;
+    overflow-y: auto;
+    flex-grow: 1;
+    scrollbar-width: thin;
+    scrollbar-color: #0de785 #1a1a1a;
+}
+
+.wkp-modal-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.wkp-modal-body::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.wkp-modal-body::-webkit-scrollbar-thumb {
+    background-color: #0de785;
+    border-radius: 5px;
+}
+
+.wkp-modal-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 18px;
+    background: linear-gradient(135deg, #fff 40%, #0de785);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.wkp-modal-content p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-bottom: 16px;
+}
+
+.wkp-modal-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* ─────────────── RESPONSIVE ─────────────── */
+@media (max-width: 850px) {
+    .wkp-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .wkp-card {
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .wkp-hero {
+        padding: 140px 20px 40px;
+    }
+
+    .wkp-modal-img-wrap {
+        height: 200px;
+    }
+
+    .wkp-modal-title {
+        font-size: 1.4rem;
+    }
+
+    .wkp-modal-body {
+        padding: 0 20px 20px;
+    }
+}
