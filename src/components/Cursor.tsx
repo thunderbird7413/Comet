@@ -1,15 +1,27 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./Cursor.css";
 
 export default function Cursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    // Hide default cursor
-    document.body.style.cursor = 'none';
+    const onLanding = () => setEnabled(true);
+    window.addEventListener("landing-complete", onLanding);
+    return () => window.removeEventListener("landing-complete", onLanding);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
+    // Hide default cursor once preloader finishes
+    document.body.style.cursor = "none";
 
     const cursor = cursorRef.current;
     const follower = followerRef.current;
@@ -20,7 +32,7 @@ export default function Cursor() {
     let mouseX = 0, mouseY = 0;
 
     // Use GSAP ticker for smooth animation loop
-    gsap.ticker.add(() => {
+    const tick = () => {
       const dt = 1.0 - Math.pow(1.0 - 0.15, gsap.ticker.deltaRatio());
 
       posX += (mouseX - posX) * dt;
@@ -31,7 +43,8 @@ export default function Cursor() {
 
       // Outer ring follows with lag
       gsap.set(follower, { x: posX - 16, y: posY - 16 }); // Offset by half width/height
-    });
+    };
+    gsap.ticker.add(tick);
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
@@ -61,15 +74,17 @@ export default function Cursor() {
     // Cleanup
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
-      gsap.ticker.remove(() => { });
-      document.body.style.cursor = 'auto';
+      gsap.ticker.remove(tick);
+      document.body.style.cursor = "auto";
 
       hoverTargets.forEach((el) => {
         el.removeEventListener("mouseenter", handleMouseEnter);
         el.removeEventListener("mouseleave", handleMouseLeave);
       });
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <>

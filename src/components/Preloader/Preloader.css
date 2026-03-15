@@ -1,0 +1,207 @@
+/* ===== PRELOADER ===== */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 55%, #07160b 0%, #010203 65%);
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.55s ease;
+}
+
+.preloader--fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Twinkling stars ── */
+.pl-star {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: pl-twinkle ease-in-out infinite;
+}
+
+@keyframes pl-twinkle {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50%       { opacity: 0.08; transform: scale(0.35); }
+}
+
+/* ── Decorative orbit rings ── */
+.pl-ring {
+  position: absolute;
+  border-radius: 50%;
+  animation: pl-spin linear infinite;
+}
+
+.pl-ring--outer {
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(13, 231, 133, 0.1);
+  border-top-color: rgba(13, 231, 133, 0.45);
+  animation-duration: 7s;
+}
+
+.pl-ring--inner {
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgba(13, 231, 133, 0.08);
+  border-right-color: rgba(13, 231, 133, 0.38);
+  animation-duration: 4.5s;
+  animation-direction: reverse;
+}
+
+/* Comet dot that rides the outer ring */
+.pl-ring--outer::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0de785;
+  box-shadow:
+    0 0 8px  #0de785,
+    0 0 20px rgba(13, 231, 133, 0.7),
+    0 0 40px rgba(13, 231, 133, 0.3);
+}
+
+/* Inner ring dot */
+.pl-ring--inner::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10d37b;
+  box-shadow:
+    0 0 6px  #10d37b,
+    0 0 14px rgba(16, 211, 123, 0.5);
+}
+
+@keyframes pl-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Ambient glow blob ── */
+.pl-glow-blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(13, 231, 133, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Center content ── */
+.pl-center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  animation: pl-rise 0.7s ease forwards;
+}
+
+@keyframes pl-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Logo ── */
+.pl-logo-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.pl-logo {
+  font-family: 'Acquire', sans-serif;
+  font-size: clamp(3rem, 10vw, 6rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff;
+  text-shadow:
+    0 0 25px rgba(13, 231, 133, 0.25),
+    0 0 70px rgba(13, 231, 133, 0.1);
+  line-height: 1;
+}
+
+.pl-logo-year {
+  font-family: 'Acquire', sans-serif;
+  font-size: clamp(1.8rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  color: #0de785;
+  text-shadow:
+    0 0 12px #0de785,
+    0 0 35px rgba(13, 231, 133, 0.55);
+  line-height: 1;
+}
+
+/* ── Tagline ── */
+.pl-tagline {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(230, 246, 238, 0.4);
+  margin: 0 0 24px;
+}
+
+/* ── Progress bar ── */
+.pl-track {
+  position: relative;
+  width: 220px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 99px;
+  overflow: visible;
+}
+
+.pl-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #059952, #0de785);
+  border-radius: 99px;
+  box-shadow: 0 0 8px rgba(13, 231, 133, 0.55);
+  transition: width 0.04s linear;
+}
+
+.pl-glow-dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #0de785;
+  box-shadow:
+    0 0 8px  #0de785,
+    0 0 18px rgba(13, 231, 133, 0.65);
+  transition: left 0.04s linear;
+}
+
+/* ── Percentage ── */
+.pl-pct {
+  font-family: 'Acquire', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  color: rgba(13, 231, 133, 0.55);
+  margin: 10px 0 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .pl-ring--outer { width: 280px; height: 280px; }
+  .pl-ring--inner { width: 190px; height: 190px; }
+  .pl-track { width: 170px; }
+}

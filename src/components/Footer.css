@@ -1,214 +1,259 @@
-/* ===== GLOBAL FOOTER WRAPPER ===== */
+/* ===== FOOTER ROOT ===== */
 .comet-footer {
-  width: 100%;
-  padding: 80px 60px 40px;
-  background: #000;
-  color: #e5e5e5;
-  font-family: "Inter", sans-serif;
   position: relative;
+  width: 100%;
+  padding: 88px 60px 28px;
+  color: #e6f6ee;
+  background:
+    radial-gradient(circle at 12% 14%, rgba(13, 231, 133, 0.14) 0%, transparent 34%),
+    radial-gradient(circle at 88% 82%, rgba(13, 231, 133, 0.08) 0%, transparent 32%),
+    linear-gradient(180deg, #020404 0%, #000 100%);
+  border-top: 1px solid rgba(13, 231, 133, 0.16);
   overflow: hidden;
 }
 
-/* ===== EMERALD GLOW ===== */
 .comet-footer::before {
   content: "";
   position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 150%;
-  height: 150%;
-  background: radial-gradient(circle at top center, #10b981 0%, #0f8d68 30%, #000 70%);
-  filter: blur(120px);
-  z-index: 0;
-  opacity: 0.55;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  opacity: 0.4;
+  pointer-events: none;
 }
 
 .comet-footer * {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
-/* ===== TOP GRID ===== */
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 60px;
-  flex-wrap: wrap;
+.footer-shell {
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-.footer-top p {
-  font-family: Arial, Helvetica, sans-serif
+/* ===== HERO STRIP ===== */
+.footer-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.8fr);
+  gap: 48px;
+  align-items: end;
 }
 
-.footer-column p {
-  margin: 6px 0;
-  font-size: 16px;
-  opacity: 0.85;
+.footer-kicker {
+  margin: 0 0 18px;
+  font-size: 0.74rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(230, 246, 238, 0.52);
 }
 
-/* ===== Heading Style (Futura Now Headline) ===== */
-.footer-heading {
-  font-family: "Futura Now Headline", sans-serif;
-  font-size: 22px;
-  letter-spacing: 1px;
-  font-weight: 700;
-  margin-bottom: 14px;
-  color: #fff;
-}
-
-/* ===== HUGE BRAND TEXT ===== */
 .footer-brand {
-  max-width: 800px;
-  width: 100%;
+  width: min(100%, 430px);
   height: auto;
-  margin: 40px auto 60px;
-  display: block;
+  filter: drop-shadow(0 0 32px rgba(13, 231, 133, 0.3));
 }
 
-/* ===== BOTTOM SECTION ===== */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 18px;
-  font-size: 13px;
-  opacity: 0.9;
+.footer-brand-copy {
+  max-width: 54ch;
+  margin: 18px 0 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(230, 246, 238, 0.78);
 }
 
-/* ===== Social Links ===== */
-.footer-socials {
-  display: flex;
-  gap: 35px;
+.footer-meta {
+  display: grid;
+  gap: 18px;
+  align-self: center;
 }
 
-.footer-link {
-  font-family: "Futura Now Headline", sans-serif;
+.footer-meta-row {
+  padding: 0 0 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-meta-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 14px;
-  color: #eaeaea;
-  cursor: pointer;
-  transition: 0.3s ease;
+  color: rgba(13, 231, 133, 0.82);
 }
 
-.footer-link:hover {
-  opacity: 0.65;
-}
-
-/* Small text */
-.footer-small {
-  font-size: 13px;
-  font-family: "Futura Now Headline", sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.footer-icon {
-  width: 18px;
-  height: 18px;
-  /* margin-right: 10px; */
-  color: #e5e5e5;
-  opacity: 0.9;
-  font-weight: bold;
-}
-
-.footer-left-menu p,
-.footer-newsletter p,
-.footer-location p {
+.footer-meta-value {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 6px 0;
-  font-size: 18px;
+  margin: 0;
+  font-family: "Futura Now Headline", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  letter-spacing: 0.04em;
+  color: #fff;
 }
 
-.footer-location h2 {
-  margin-bottom: 10px;
-  font-size: 22px;
+.footer-divider {
+  height: 1px;
+  margin: 34px 0 30px;
+  background: linear-gradient(90deg, transparent 0%, rgba(13, 231, 133, 0.28) 18%, rgba(255, 255, 255, 0.12) 50%, rgba(13, 231, 133, 0.28) 82%, transparent 100%);
 }
 
-/* Map Wrapper */
+/* ===== CONTENT COLUMNS ===== */
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr 1.1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.footer-column {
+  min-width: 0;
+}
+
+.footer-heading {
+  margin: 0 0 16px;
+  font-family: "Futura Now Headline", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  color: rgba(230, 246, 238, 0.82);
+  text-decoration: none;
+  line-height: 1.55;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-item:hover {
+  color: #0de785;
+  transform: translateX(3px);
+}
+
+.footer-text:hover {
+  transform: none;
+}
+
+.footer-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: #0de785;
+}
+
+.footer-social-column .footer-socials {
+  display: grid;
+  gap: 12px;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  color: rgba(230, 246, 238, 0.84);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-social-link:hover {
+  color: #0de785;
+  border-color: rgba(13, 231, 133, 0.35);
+}
+
+.footer-social-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.footer-location-column {
+  justify-self: end;
+  width: 100%;
+  max-width: 360px;
+}
+
 .footer-map-wrapper {
-  margin-top: 10px;
-  max-width: 300px;
-  filter: grayscale(100%) invert(90%);
-  /* Dark mode map effect */
-  transition: filter 0.3s ease;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.28);
+  filter: saturate(0.88) brightness(0.92);
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .footer-map-wrapper:hover {
-  filter: grayscale(0%) invert(0%);
+  transform: translateY(-2px);
+  filter: saturate(1) brightness(1);
 }
 
 .footer-map-wrapper iframe {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: block;
 }
 
-/* .comet-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-} */
+/* ===== BOTTOM BAR ===== */
+.footer-bottom {
+  max-width: 1280px;
+  margin: 28px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(230, 246, 238, 0.5);
+}
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .footer-hero,
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
 
-/* Tablets */
-@media (max-width: 1000px) {
-  /* .footer-brand font-size removed */
-
-  .footer-top {
-    gap: 40px;
+  .footer-location-column {
+    justify-self: start;
+    max-width: 100%;
   }
 }
 
-/* Mobile */
 @media (max-width: 700px) {
   .comet-footer {
-    padding: 60px 30px 30px;
+    padding: 70px 22px 24px;
   }
 
-  .footer-top {
-    flex-direction: column;
-    gap: 35px;
+  .footer-kicker,
+  .footer-bottom p {
+    letter-spacing: 0.14em;
   }
 
-  .footer-map-wrapper {
-    max-width: 100%;
+  .footer-brand-copy {
+    font-size: 0.95rem;
   }
 
-  .footer-brand {
-    /* font-size: 90px; removed */
-    text-align: center;
+  .footer-divider {
+    margin: 24px 0 22px;
   }
 
   .footer-bottom {
     flex-direction: column;
-    gap: 14px;
-    text-align: center;
-  }
-
-  .footer-socials {
-    gap: 25px;
-  }
-}
-
-/* Extra small */
-@media (max-width: 480px) {
-  /* .footer-brand font-size removed */
-
-  .footer-heading {
-    font-size: 18px;
-  }
-
-  .footer-column p {
-    font-size: 14px;
-  }
-
-  .footer-link {
-    font-size: 13px;
+    align-items: flex-start;
   }
 }
