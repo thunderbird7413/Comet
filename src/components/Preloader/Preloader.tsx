@@ -18,7 +18,7 @@ export default function Preloader() {
 
   // Smooth progress animation
   useEffect(() => {
-    const DURATION = 1800;
+    const DURATION = 2600;
     let start: number | null = null;
     let raf: number;
 
@@ -50,10 +50,6 @@ export default function Preloader() {
       {/* Ambient glow */}
       <div className="pl-glow-blob" />
 
-      {/* Orbit rings with comet dots */}
-      <div className="pl-ring pl-ring--outer" />
-      <div className="pl-ring pl-ring--inner" />
-
       {/* Center content */}
       <div className="pl-center">
         <div className="pl-logo-wrap">
@@ -65,7 +61,6 @@ export default function Preloader() {
         {/* Progress bar */}
         <div className="pl-track">
           <div className="pl-fill" style={{ width: `${progress}%` }} />
-          <div className="pl-glow-dot" style={{ left: `${progress}%` }} />
         </div>
 
         <p className="pl-pct">{Math.round(progress)}%</p>

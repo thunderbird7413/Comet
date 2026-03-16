@@ -4,7 +4,7 @@ import AnimatedSubtitle from "./AnimatedSubtitle";
 
 import { Canvas } from "@react-three/fiber";
 import HeroStarField from "./HeroStarField";
-import EmeraldSmoke from "./EmeraldSmoke"; // [NEW] Import
+import EmeraldSmoke from "./EmeraldSmoke";
 
 import { motion } from "framer-motion";
 
@@ -44,7 +44,6 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero container" style={{ position: "relative", overflow: "hidden" }}>
-      {/* Living Background */}
       <div style={{ position: "absolute", inset: 0, zIndex: -1 }}>
         <Canvas camera={{ position: [0, 0, 1], fov: 60 }}>
           <color attach="background" args={["#000000"]} />
@@ -69,7 +68,6 @@ export default function Hero() {
           <AnimatedSubtitle text="Where Vision Fuels Creation" />
         </motion.div>
 
-        {/* --- DATE + COUNTDOWN --- */}
         <motion.div
           className="hero-event-strip"
           initial={{ opacity: 0, y: 16 }}
@@ -83,13 +81,12 @@ export default function Hero() {
                 <span className="hero-cd-num">
                   {String(countdown[unit]).padStart(2, "0")}
                 </span>
-                <span className="hero-cd-unit">{["Days","Hrs","Min","Sec"][i]}</span>
+                <span className="hero-cd-unit">{["Days", "Hrs", "Min", "Sec"][i]}</span>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* --- PARTNER LOGOS --- */}
         <motion.div
           className="hero-logos"
           initial={{ opacity: 0, y: 20 }}
@@ -102,10 +99,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Emerald Smoke Effect - replacing the sphere */}
-      {/* zIndex: 0 ensures it's above background (-1) but below content/text */}
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none", zIndex: 0 }}>
-        {/* fov bigger to see wide spread at bottom */}
         <Canvas gl={{ alpha: true }} camera={{ position: [0, 0, 10], fov: 50 }}>
           <ambientLight intensity={0.5} />
           <EmeraldSmoke start={start} />
