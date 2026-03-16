@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import styles from "./EventReveal.module.css";
 import Modal from "./Modal";
 
@@ -103,51 +103,8 @@ const events = [
 ];
 
 
-/* ---------- helper: pattern class index for V-shape (0..6) ---------- */
-const patternIndex = (i: number) => i % 7; // 7 positions repeated
-
 export default function EventsReveal() {
-    const containerRef = useRef<HTMLDivElement | null>(null);
-    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-    const [revealed, setRevealed] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState<typeof events[0] | null>(null);
-
-    useEffect(() => {
-        const el = containerRef.current;
-        if (!el) return;
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        revealAll();
-                        observer.disconnect();
-                    }
-                });
-            },
-            { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
-        );
-
-        observer.observe(el);
-        return () => observer.disconnect();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    function revealAll() {
-        setRevealed(true);
-        // stagger reveal of each card
-        cardRefs.current.forEach((card, idx) => {
-            if (!card) return;
-            const delay = idx * 80 + 100; // ms
-            setTimeout(() => {
-                card.classList.add(styles.show);
-            }, delay);
-        });
-    }
-
-    const setRef = (el: HTMLDivElement | null, idx: number) => {
-        cardRefs.current[idx] = el;
-    };
 
     return (
         <section className={styles.section} id="events" aria-label="Events reveal section">
@@ -157,20 +114,17 @@ export default function EventsReveal() {
                 {/* <p className={styles.lead}>Explore our curated selection — scroll to unfold and interact with each event.</p> */}
             </div>
             <div className={styles.initialStackWrapper}>
-                <div ref={containerRef} className={`${styles.deck} ${revealed ? styles.revealed : ""}`}>
-                    {events.map((ev, idx) => {
-                        const posClass = styles["pos" + patternIndex(idx)];
+                <div className={styles.deck}>
+                    {events.map((ev) => {
                         const bg = `linear-gradient(135deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.06) 100%), url("${ev.image}")`;
                         return (
                             <div
                                 key={ev.id}
-                                ref={(el) => setRef(el, idx)}
-                                className={`${styles.card} ${posClass}`}
+                                className={styles.card}
                                 style={{ backgroundImage: bg }}
                                 onClick={() => setSelectedEvent(ev)}
                                 onMouseEnter={(e) => {
-                                    // Cache the rect on enter to avoid layout thrashing on move
-                                    const el = cardRefs.current[idx];
+                                    const el = e.currentTarget;
                                     if (!el) return;
                                     const r = el.getBoundingClientRect();
                                     el.setAttribute("data-l", r.left.toString());
@@ -179,9 +133,8 @@ export default function EventsReveal() {
                                     el.setAttribute("data-h", r.height.toString());
                                 }}
                                 onMouseMove={(e) => {
-                                    const el = cardRefs.current[idx];
+                                    const el = e.currentTarget;
                                     if (!el) return;
-                                    // Read from attributes instead of causing reflow
                                     const left = parseFloat(el.getAttribute("data-l") || "0");
                                     const top = parseFloat(el.getAttribute("data-t") || "0");
                                     const w = parseFloat(el.getAttribute("data-w") || "1");
@@ -190,15 +143,13 @@ export default function EventsReveal() {
                                     const px = (e.clientX - left) / w;
                                     const py = (e.clientY - top) / h;
 
-                                    // Use requestAnimationFrame for smoother updates if needed, but direct style set is okay if no reflow
                                     el.style.setProperty("--mx", `${(px - 0.5) * 10}deg`);
                                     el.style.setProperty("--my", `${(py - 0.5) * 8}px`);
                                     el.style.setProperty("--bx", `${50 + (px - 0.5) * 6}%`);
                                     el.style.setProperty("--by", `${50 + (py - 0.5) * 6}%`);
                                 }}
-                                onMouseLeave={() => {
-                                    const el = cardRefs.current[idx];
-                                    if (!el) return;
+                                onMouseLeave={(e) => {
+                                    const el = e.currentTarget;
                                     el.style.setProperty("--mx", `0deg`);
                                     el.style.setProperty("--my", `0px`);
                                     el.style.setProperty("--bx", `50%`);

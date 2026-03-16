@@ -20,7 +20,7 @@ const Footer = () => {
               <div className="footer-meta-row">
                 <span className="footer-meta-label">Dates</span>
                 <p className="footer-meta-value">
-                  <CalendarDays className="footer-icon" /> 13 - 15 April 2026
+                  <CalendarDays className="footer-icon" /> 11 - 12 April 2026
                 </p>
               </div>
               <div className="footer-meta-row">

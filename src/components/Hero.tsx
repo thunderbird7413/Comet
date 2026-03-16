@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 import { useState, useEffect } from "react";
 
-const EVENT_START = new Date("2026-04-13T00:00:00");
+const EVENT_START = new Date("2026-04-11T00:00:00");
 
 function useCountdown() {
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
@@ -76,7 +76,7 @@ export default function Hero() {
           animate={start ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.3, duration: 0.7 }}
         >
-          <p className="hero-date-label">13 &mdash; 15 APRIL 2026</p>
+          <p className="hero-date-label">11 &mdash; 12 APRIL 2026</p>
           <div className="hero-countdown">
             {(["d", "h", "m", "s"] as const).map((unit, i) => (
               <div key={unit} className="hero-cd-cell">

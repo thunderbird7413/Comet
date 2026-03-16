@@ -64,8 +64,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Event",
               "name": "COMET'26",
-              "startDate": "2026-03-01",
-              "endDate": "2026-03-02",
+              "startDate": "2026-04-11",
+              "endDate": "2026-04-12",
               "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
               "eventStatus": "https://schema.org/EventScheduled",
               "location": {
