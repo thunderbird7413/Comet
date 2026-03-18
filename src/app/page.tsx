@@ -22,9 +22,9 @@ export default function Home() {
       <Hero />
       <About />
       <Timeline />
-      <div className="page8 remove">
+      {/* <div className="page8 remove">
         <Zoom />
-      </div>
+      </div> */}
       <Workshops />
       <EventReveal />
       <CosmicGallery />

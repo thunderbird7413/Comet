@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./Sponsers.css";
 
-const sponsors = Array.from({ length: 28 }, (_, i) => ({
+const sponsors = Array.from({ length: 24 }, (_, i) => ({
   logo: `/image ${i + 1}.png`,
   alt: `Sponsor ${i + 1}`,
 }));
@@ -22,10 +22,10 @@ export default function WhoWeWorkWith() {
       </motion.h2>
 
       <div className="sponsor-wall" aria-label="Sponsors list">
-        {sponsors.map((sponsor, i) => (
+        {sponsors.map((sponsor) => (
           <div
             key={sponsor.logo}
-            className={`sponsor-brick ${(i % 5 === 0 || i % 7 === 0) ? "sponsor-brick--tall" : ""}`}
+            className="sponsor-card"
           >
             <img src={sponsor.logo} alt={sponsor.alt} className="sponsor-logo" loading="lazy" />
           </div>

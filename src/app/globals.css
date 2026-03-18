@@ -344,6 +344,51 @@ a {
   text-align: center;
 }
 
+.hero-stars2d {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #000;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-stars2d-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-star2d {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-star2d--white {
+  background: #f6fbff;
+}
+
+.hero-star2d--emerald {
+  background: #0de785;
+}
+
+.hero-stars2d-layer--far {
+  filter: blur(0.45px);
+}
+
+.hero-stars2d-layer--mid {
+  filter: blur(0.2px);
+}
+
+.hero-stars2d-layer--near {
+  filter: none;
+}
+
 .hero-inner {
   position: relative;
   z-index: 10;
@@ -680,7 +725,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
+  /* background: #000; */
   color: var(--text);
   overflow: hidden;
 
@@ -703,7 +748,7 @@ a {
 .cube-left {
   background-image: url('/about/cube-left.png');
   left: 0%;
-  top: 2%;
+  top: -8%;
 }
 
 .cube-right {
@@ -789,7 +834,7 @@ a {
 
   /* prevent huge gap on large screens */
   margin-top: 600px;
-  font-family: sans-serif !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 }
 
 .about-description p {
@@ -821,34 +866,52 @@ a {
 /* ---------- Mobile ---------- */
 @media (max-width: 640px) {
   .about-section {
-    padding: 40px 20px;
+    padding: 40px 20px 0px 20px;
   }
 
-  .floating-cube {
-    width: 180px;
-    height: 180px;
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .cube-left {
-    top: 5%;
-    left: 0;
+  .about-badge-wrapper,
+  .about-heading,
+  .about-description {
+    grid-column: 1;
   }
 
-  .cube-right {
-    bottom: 5%;
-    right: 0;
+  .about-badge-wrapper {
+    justify-self: end;
   }
 
-  .about-heading h1 {
+  .about-heading {
+    text-align: right;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .about-heading h1,
+  .about-heading h2 {
     font-size: 1.4rem;
+    line-height: 1.35;
+  }
+
+  .about-description {
+    grid-column: 1;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 18px;
+    font-size: 0.95rem;
+    text-align: left;
+    line-height: 1.7;
   }
 
   .about-badge span {
     font-size: 1.4rem;
   }
 
-  .about-description {
-    font-size: 0.95rem;
+  .floating-cube {
+    display: none;
   }
 }
 
@@ -1000,7 +1063,7 @@ a {
   margin-bottom: 100px;
   width: 100%;
   padding: 80px 0;
-  background: var(--bg);
+  /* background: var(--bg); */
   color: var(--text);
   display: flex;
   justify-content: center;
@@ -1109,15 +1172,37 @@ a {
   .hero-cd-num {
     font-size: 1rem;
   }
+
+  .timeline-line {
+    left: 14px;
+    transform: none;
+  }
+
   .timeline-item {
     justify-content: flex-start !important;
     margin: 40px 0;
+    position: relative;
+  }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    width: 22px;
+    height: 2px;
+    background: var(--line);
+    transform: translateY(-50%);
   }
 
   .timeline-card {
-    width: 100%;
-    margin-left: 40px;
-    /* spacing from the line */
+    width: calc(100% - 44px);
+    margin-left: 44px;
+    /* spacing from the line + connector */
+  }
+
+  .timeline-dot {
+    left: 14px;
   }
 }
 
@@ -1132,12 +1217,23 @@ a {
 
   .timeline-card {
     padding: 16px;
-    margin-left: 35px;
+    width: calc(100% - 36px);
+    margin-left: 36px;
   }
 
   .timeline-dot {
     width: 14px;
     height: 14px;
+    left: 12px;
+  }
+
+  .timeline-line {
+    left: 12px;
+  }
+
+  .timeline-item::before {
+    left: 12px;
+    width: 18px;
   }
 }
 

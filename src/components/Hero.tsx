@@ -3,7 +3,6 @@ import LiquidTitle from "@/components/LiquidTitle";
 import AnimatedSubtitle from "./AnimatedSubtitle";
 
 import { Canvas } from "@react-three/fiber";
-import HeroStarField from "./HeroStarField";
 import EmeraldSmoke from "./EmeraldSmoke";
 
 import { motion } from "framer-motion";
@@ -44,13 +43,6 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero container" style={{ position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "absolute", inset: 0, zIndex: -1 }}>
-        <Canvas camera={{ position: [0, 0, 1], fov: 60 }}>
-          <color attach="background" args={["#000000"]} />
-          <HeroStarField />
-        </Canvas>
-      </div>
-
       <div className="hero-inner" style={{ isolation: "isolate" }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

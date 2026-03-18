@@ -2,7 +2,7 @@
   position: relative;
   padding: 100px 0;
   overflow: hidden;
-  background: var(--bg-dark);
+  /* background: var(--bg-dark); */
 }
 
 .container {

@@ -9,7 +9,7 @@
 .section {
   /* margin-top: 40px; */
   padding: 0 18px 30px 18px;
-  background: linear-gradient(180deg, #020204 0%, #03030b 100%);
+  /* background: linear-gradient(180deg, #020204 0%, #03030b 100%); */
   color: #eaf6ff;
   box-sizing: border-box;
 }
@@ -65,21 +65,28 @@
 /* CARD base */
 .card {
   width: 100%;
-  min-height: 250px;
+  min-height: 360px;
   border-radius: 12px;
   color: white;
-  overflow: visible;
+  overflow: hidden;
   transform-style: preserve-3d;
-  transition: transform 420ms cubic-bezier(.2, .9, .2, 1), box-shadow 300ms;
   position: relative;
-  will-change: transform, opacity;
   cursor: pointer;
   box-shadow: 0 8px 36px rgba(2, 6, 23, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.04);
-  background-size: cover;
-  background-position: center var(--by, 50%);
-  background-repeat: no-repeat;
+  background: #06070a;
   -webkit-tap-highlight-color: transparent;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--card-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 0;
 }
 
 /* flipper */
@@ -87,6 +94,7 @@
   width: 100%;
   height: 100%;
   position: relative;
+  z-index: 1;
   transform-style: preserve-3d;
   transition: transform 700ms cubic-bezier(.2, .9, .2, 1);
   pointer-events: none;
@@ -200,45 +208,10 @@
   font-size: 12px;
 }
 
-/* sheen */
-.sheen {
-  position: absolute;
-  left: -40%;
-  top: -10%;
-  width: 180%;
-  height: 120%;
-  transform: rotate(-18deg);
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.02));
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 350ms, transform 700ms;
-  mix-blend-mode: screen;
-}
-
-/* hover effect E: lift, glow, parallax motion, sheen */
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 28px 90px rgba(2, 6, 23, 0.88), 0 2px 28px rgba(34, 211, 238, 0.06);
-  z-index: 9999;
-}
-
-.card:hover .front {
-  transform: translateZ(30px);
-}
-
-.card:hover .sheen {
-  opacity: 0.9;
-  transform: translateX(30%) rotate(-18deg);
-}
-
-.card:hover .cardContent {
-  transform: translateZ(24px);
-}
-
-/* background parallax using CSS vars set by mousemove */
-.card {
-  background-position: var(--bx, 50%) var(--by, 50%);
-  transition: box-shadow 240ms ease, transform 320ms cubic-bezier(.2, .9, .2, 1);
+@media (max-width: 1200px) {
+  .card {
+    min-height: 330px;
+  }
 }
 
 /* responsive */
@@ -255,7 +228,8 @@
   }
 
   .card {
-    height: 200px;
+    min-height: 280px;
+    height: auto;
   }
 
   .cardTitle {

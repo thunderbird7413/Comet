@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, type CSSProperties } from "react";
 import styles from "./EventReveal.module.css";
 import Modal from "./Modal";
 
@@ -116,45 +116,13 @@ export default function EventsReveal() {
             <div className={styles.initialStackWrapper}>
                 <div className={styles.deck}>
                     {events.map((ev) => {
-                        const bg = `linear-gradient(135deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.06) 100%), url("${ev.image}")`;
+                        const cardStyle = { "--card-image": `url("${ev.image}")` } as CSSProperties;
                         return (
                             <div
                                 key={ev.id}
                                 className={styles.card}
-                                style={{ backgroundImage: bg }}
+                                style={cardStyle}
                                 onClick={() => setSelectedEvent(ev)}
-                                onMouseEnter={(e) => {
-                                    const el = e.currentTarget;
-                                    if (!el) return;
-                                    const r = el.getBoundingClientRect();
-                                    el.setAttribute("data-l", r.left.toString());
-                                    el.setAttribute("data-t", r.top.toString());
-                                    el.setAttribute("data-w", r.width.toString());
-                                    el.setAttribute("data-h", r.height.toString());
-                                }}
-                                onMouseMove={(e) => {
-                                    const el = e.currentTarget;
-                                    if (!el) return;
-                                    const left = parseFloat(el.getAttribute("data-l") || "0");
-                                    const top = parseFloat(el.getAttribute("data-t") || "0");
-                                    const w = parseFloat(el.getAttribute("data-w") || "1");
-                                    const h = parseFloat(el.getAttribute("data-h") || "1");
-
-                                    const px = (e.clientX - left) / w;
-                                    const py = (e.clientY - top) / h;
-
-                                    el.style.setProperty("--mx", `${(px - 0.5) * 10}deg`);
-                                    el.style.setProperty("--my", `${(py - 0.5) * 8}px`);
-                                    el.style.setProperty("--bx", `${50 + (px - 0.5) * 6}%`);
-                                    el.style.setProperty("--by", `${50 + (py - 0.5) * 6}%`);
-                                }}
-                                onMouseLeave={(e) => {
-                                    const el = e.currentTarget;
-                                    el.style.setProperty("--mx", `0deg`);
-                                    el.style.setProperty("--my", `0px`);
-                                    el.style.setProperty("--bx", `50%`);
-                                    el.style.setProperty("--by", `50%`);
-                                }}
                             >
                                 <div className={styles.flipper}>
                                     <div className={`${styles.face} ${styles.back}`}>
@@ -178,7 +146,6 @@ export default function EventsReveal() {
                                             </div>
                                         </div>
 
-                                        <div className={styles.sheen} aria-hidden />
                                     </div>
                                 </div>
                             </div>

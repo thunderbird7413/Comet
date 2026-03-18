@@ -9,7 +9,6 @@ const Footer = () => {
         <div className="footer-shell">
           <div className="footer-hero">
             <div className="footer-brand-zone">
-              {/* <p className="footer-kicker">Career Development Cell, IIT Roorkee</p> */}
               <img src="/logos/Comet.png" alt="COMET" className="footer-brand" />
               <p className="footer-brand-copy">
                 COMET is where technology, ambition, and creative problem-solving converge into one immersive campus experience.

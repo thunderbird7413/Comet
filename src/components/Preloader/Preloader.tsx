@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import "./Preloader.css";
 
 export default function Preloader() {
-  const [progress, setProgress] = useState(0);
+  const START_PROGRESS = 33;
+  const [progress, setProgress] = useState(START_PROGRESS);
   const [fading, setFading] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -24,7 +25,8 @@ export default function Preloader() {
 
     const tick = (ts: number) => {
       if (start === null) start = ts;
-      const p = Math.min(((ts - start) / DURATION) * 100, 100);
+      const elapsedRatio = Math.min((ts - start) / DURATION, 1);
+      const p = START_PROGRESS + elapsedRatio * (100 - START_PROGRESS);
       setProgress(p);
       if (p < 100) {
         raf = requestAnimationFrame(tick);
@@ -56,7 +58,7 @@ export default function Preloader() {
           <span className="pl-logo">COMET</span>
           <span className="pl-logo-year">IITR</span>
         </div>
-        <p className="pl-tagline">Initializing the Experience</p>
+        <p className="pl-tagline">Where Vision Fuels Creation</p>
 
         {/* Progress bar */}
         <div className="pl-track">

@@ -2,7 +2,7 @@
     height: 100vh;
     width: 100%;
     position: relative;
-    background-color: black;
+    /* background-color: black; */
     overflow: hidden;
     padding: 0;
     cursor: none;
@@ -129,13 +129,39 @@
     max-width: 400px;
     border-radius: 12px;
     overflow: hidden;
+    position: relative;
+    min-height: 220px;
     box-shadow: 0 4px 20px rgba(0, 255, 156, 0.15);
     /* Subtle emerald glow */
     border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0b1110;
+}
+
+.mobile-gallery-skeleton {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg,
+            rgba(255, 255, 255, 0.06) 8%,
+            rgba(255, 255, 255, 0.18) 18%,
+            rgba(255, 255, 255, 0.06) 33%);
+    background-size: 220% 100%;
+    animation: mobile-gallery-shimmer 1.2s linear infinite;
 }
 
 .mobile-gallery-item img {
     width: 100%;
     height: auto;
     display: block;
+    opacity: 0;
+    transition: opacity 280ms ease;
+}
+
+.mobile-gallery-item img.is-loaded {
+    opacity: 1;
+}
+
+@keyframes mobile-gallery-shimmer {
+    to {
+        background-position-x: -220%;
+    }
 }

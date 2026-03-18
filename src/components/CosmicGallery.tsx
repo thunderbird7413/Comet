@@ -93,6 +93,14 @@ function FloatingImage({ url, pos, scale }: { url: string, pos: number[], scale:
 
 export default function CosmicGallery() {
     const [isMobile, setIsMobile] = useState(false);
+    const [loadedMobileImages, setLoadedMobileImages] = useState<Record<number, boolean>>({});
+
+    const markMobileImageLoaded = (index: number) => {
+        setLoadedMobileImages((prev) => {
+            if (prev[index]) return prev;
+            return { ...prev, [index]: true };
+        });
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -132,7 +140,15 @@ export default function CosmicGallery() {
                 <div className="mobile-gallery-grid">
                     {desktopImages.map((img, i) => (
                         <div key={i} className="mobile-gallery-item">
-                            <img src={img.url} alt={`Memory ${i + 1}`} loading="lazy" />
+                            {!loadedMobileImages[i] && <div className="mobile-gallery-skeleton" aria-hidden="true" />}
+                            <img
+                                src={img.url}
+                                alt={`Memory ${i + 1}`}
+                                loading="lazy"
+                                onLoad={() => markMobileImageLoaded(i)}
+                                onError={() => markMobileImageLoaded(i)}
+                                className={loadedMobileImages[i] ? "is-loaded" : ""}
+                            />
                         </div>
                     ))}
                 </div>

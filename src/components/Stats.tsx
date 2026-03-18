@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-// import "./timeline.css";
 
 export default function Timeline() {
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);

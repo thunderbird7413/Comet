@@ -4,6 +4,7 @@ import "./globals.css";
 import Cursor from "@/components/Cursor";
 import Preloader from "@/components/Preloader/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
+import HeroStars2D from "@/components/HeroStars2D";
 
 
 export const metadata: Metadata = {
@@ -116,6 +117,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <HeroStars2D />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-PK8594TV"
@@ -126,9 +128,11 @@ export default function RootLayout({
         </noscript>
         <Preloader />
         <Cursor />
-        <SmoothScroll>
-          {children}
-        </SmoothScroll>
+        <div className="app-shell">
+          <SmoothScroll>
+            {children}
+          </SmoothScroll>
+        </div>
       </body>
     </html>
   );
