@@ -5,7 +5,7 @@ import Cursor from "@/components/Cursor";
 import Preloader from "@/components/Preloader/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
 import HeroStars2D from "@/components/HeroStars2D";
-
+import { AuthProvider } from "@/components/AuthContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://comet.iitr.ac.in"),
@@ -117,22 +117,24 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
-        <HeroStars2D />
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-PK8594TV"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-        <Preloader />
-        <Cursor />
-        <div className="app-shell">
-          <SmoothScroll>
-            {children}
-          </SmoothScroll>
-        </div>
+        <AuthProvider>
+          <HeroStars2D />
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-PK8594TV"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+          <Preloader />
+          <Cursor />
+          <div className="app-shell">
+            <SmoothScroll>
+              {children}
+            </SmoothScroll>
+          </div>
+        </AuthProvider>
       </body>
     </html>
   );

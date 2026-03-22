@@ -1,0 +1,361 @@
+/* ==========================================
+   AUTH MODAL — Cosmic Glassmorphism Theme
+   ========================================== */
+
+.auth-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-modal {
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+    background: rgba(6, 14, 10, 0.92);
+    border: 1px solid rgba(13, 231, 133, 0.2);
+    border-radius: 24px;
+    padding: 36px 36px 32px;
+    box-shadow:
+        0 0 60px rgba(13, 231, 133, 0.08),
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+/* ---- decorative glows ---- */
+.auth-glow {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.18;
+}
+
+.auth-glow-top {
+    top: -60px;
+    left: -40px;
+    width: 240px;
+    height: 240px;
+    background: #0de785;
+}
+
+.auth-glow-bottom {
+    bottom: -60px;
+    right: -40px;
+    width: 200px;
+    height: 200px;
+    background: #00a8ff;
+}
+
+/* ---- close button ---- */
+.auth-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(230, 246, 238, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 10;
+}
+
+.auth-close:hover {
+    background: rgba(13, 231, 133, 0.15);
+    border-color: rgba(13, 231, 133, 0.4);
+    color: #0de785;
+    transform: rotate(90deg);
+}
+
+/* ---- header ---- */
+.auth-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.auth-logo-mark {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0de785, #00c46a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 24px rgba(13, 231, 133, 0.35);
+    overflow: hidden;
+}
+
+.auth-logo-img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.auth-site-name {
+    font-family: 'Futura Now Headline', 'Acquire', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: rgba(230, 246, 238, 0.4);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ---- tab switcher ---- */
+.auth-tabs {
+    position: relative;
+    display: flex;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 24px;
+}
+
+.auth-tab {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    height: 38px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Acquire', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: rgba(230, 246, 238, 0.45);
+    transition: color 0.25s ease;
+    border-radius: 9px;
+}
+
+.auth-tab.active {
+    color: #0de785;
+}
+
+.auth-tab-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    width: calc(50% - 4px);
+    background: rgba(13, 231, 133, 0.1);
+    border: 1px solid rgba(13, 231, 133, 0.25);
+    border-radius: 9px;
+    transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.auth-tab-indicator.left {
+    left: 4px;
+}
+
+.auth-tab-indicator.right {
+    left: calc(50%);
+}
+
+/* ---- banners ---- */
+.auth-banner {
+    overflow: hidden;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-family: 'Futura Now Headline', sans-serif;
+}
+
+.auth-banner-error {
+    background: rgba(255, 60, 60, 0.1);
+    border: 1px solid rgba(255, 60, 60, 0.3);
+    color: #ff8080;
+}
+
+.auth-banner-success {
+    background: rgba(13, 231, 133, 0.1);
+    border: 1px solid rgba(13, 231, 133, 0.3);
+    color: #0de785;
+}
+
+/* ---- form ---- */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.auth-label {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(230, 246, 238, 0.6);
+    text-transform: uppercase;
+}
+
+.auth-optional {
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(230, 246, 238, 0.3);
+    font-size: 10px;
+}
+
+.auth-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.auth-input-icon {
+    position: absolute;
+    left: 14px;
+    color: rgba(13, 231, 133, 0.5);
+    pointer-events: none;
+    flex-shrink: 0;
+}
+
+.auth-input {
+    width: 100%;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 0 42px 0 42px;
+    font-family: 'Futura Now Headline', sans-serif;
+    font-size: 14px;
+    color: #e6f6ee;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    outline: none;
+}
+
+.auth-input::placeholder {
+    color: rgba(230, 246, 238, 0.2);
+}
+
+.auth-input:focus {
+    border-color: rgba(13, 231, 133, 0.5);
+    background: rgba(13, 231, 133, 0.04);
+    box-shadow: 0 0 0 3px rgba(13, 231, 133, 0.08), 0 0 16px rgba(13, 231, 133, 0.06);
+}
+
+.auth-input:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.auth-pw-toggle {
+    position: absolute;
+    right: 14px;
+    background: transparent;
+    border: none;
+    color: rgba(230, 246, 238, 0.35);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.auth-pw-toggle:hover {
+    color: #0de785;
+}
+
+/* ---- submit button ---- */
+.auth-submit {
+    height: 50px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0de785 0%, #00c46a 100%);
+    border: none;
+    color: #001b0e;
+    font-family: 'Acquire', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 20px rgba(13, 231, 133, 0.25);
+    margin-top: 4px;
+}
+
+.auth-submit:hover:not(:disabled) {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 28px rgba(13, 231, 133, 0.38);
+}
+
+.auth-submit:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.auth-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* spinner animation */
+.auth-spinner {
+    animation: auth-spin 0.8s linear infinite;
+}
+
+@keyframes auth-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---- switch hint ---- */
+.auth-switch-hint {
+    text-align: center;
+    font-family: 'Futura Now Headline', sans-serif;
+    font-size: 13px;
+    color: rgba(230, 246, 238, 0.35);
+    margin: 0;
+}
+
+.auth-switch-link {
+    background: transparent;
+    border: none;
+    color: #0de785;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Futura Now Headline', sans-serif;
+    transition: opacity 0.2s;
+    padding: 0;
+}
+
+.auth-switch-link:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}
+
+/* ---- responsive ---- */
+@media (max-width: 500px) {
+    .auth-modal {
+        padding: 28px 22px 26px;
+        border-radius: 20px;
+    }
+}
