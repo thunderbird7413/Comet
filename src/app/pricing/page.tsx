@@ -7,6 +7,7 @@ const page = () => {
     {
       name: "Comet Essential Pass",
       mostPopular: false,
+      link: "",
       features: [
         {
           feature: "Atendee Kit",
@@ -57,6 +58,7 @@ const page = () => {
     {
       name: "Comet Standard Pass",
       mostPopular: true,
+      link: "",
       features: [
         {
           feature: "Atendee Kit",
@@ -107,6 +109,7 @@ const page = () => {
     {
       name: "Comet Gold Pass",
       mostPopular: false,
+      link: "https://forms.easebuzz.in/register/COMETewXAZ/comet_2026_paymentlink",
       features: [
         {
           feature: "Atendee Kit",
@@ -166,6 +169,7 @@ const page = () => {
                 name={elm.name}
                 isPopular={elm.mostPopular}
                 features={elm.features}
+                link={elm.link}
               />
             );
           })}

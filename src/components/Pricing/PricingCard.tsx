@@ -1,14 +1,17 @@
 import React from "react";
 import { PricingDetails } from "./pricingTypes";
 import styles from "./Pricing.module.css";
+import Link from "next/link";
 
 const PricingCard = ({
   name,
   isPopular,
+  link,
   features,
 }: {
   name: string;
   isPopular: boolean;
+  link: string;
   features: {
     feature: string;
     isTrue: boolean;
@@ -17,7 +20,9 @@ const PricingCard = ({
   return (
     <div className={styles.pricing__wrapper} key={name}>
       <h3 className={styles.pricing_heading}>{name}</h3>
-      <button className={styles.pricing_button}>Book Now</button>
+      <Link href={link} target="_blank">
+        <button className={styles.pricing_button}>Book Now</button>
+      </Link>
       <div>
         {features.map((element, index) => {
           return (
