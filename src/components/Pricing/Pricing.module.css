@@ -1,0 +1,131 @@
+.pricing__card__container {
+  display: flex;
+  gap: 8rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pricing__wrapper {
+  padding: 10px 36px;
+  border-radius: 42px;
+  backdrop-filter: blur(5rem);
+  border: 2px solid hsla(119, 100%, 90%, 1);
+  position: relative;
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.pricing__wrapper:hover {
+  transform: translateY(-10px);
+}
+
+.pricing_heading {
+  text-align: center;
+  font-family: "Futura Now Headline", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.pricing_button {
+  margin: 1.2rem auto;
+  width: 200px;
+  height: 60px;
+  font-family: "Futura Now Headline", sans-serif;
+  display: block;
+  font-size: 20px;
+  background-color: hsla(145, 100%, 83%, 1);
+  border: 1px solid hsla(145, 52%, 39%, 1);
+  border-radius: 37px;
+  color: hsla(145, 52%, 39%, 1);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pricing_button:hover {
+  background-color: hsla(145, 52%, 39%, 1);
+  color: #fff;
+}
+
+.pricing_container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px 60px;
+  box-sizing: border-box;
+}
+
+.feature__wrapper {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.feature__text {
+  font-family: "Futura Now Headline", sans-serif;
+}
+
+.pricing__main {
+  background: linear-gradient(180deg, #015630 0%, #161616 100%);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.popular__bagde {
+  position: absolute;
+  top: -20px;
+  right: 20px;
+  padding: 10px 16px;
+  background-color: hsla(145, 96%, 17%, 1);
+  border-radius: 53px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* media queries */
+@media (max-width: 1200px) {
+  .pricing__card__container {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .pricing__card__container {
+    gap: 2rem;
+  }
+
+  .pricing_container {
+    padding: 50px 10px 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .pricing__wrapper {
+    width: 100%;
+    max-width: 320px;
+    padding: 30px 20px;
+    border-radius: 30px;
+  }
+
+  .pricing_heading {
+    font-size: 18px;
+  }
+
+  .pricing_button {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .feature__wrapper {
+    font-size: 14px;
+  }
+}

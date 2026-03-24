@@ -51,6 +51,12 @@ export default function Navbar() {
         );
 
       const onLanding = () => { tl.play(); };
+
+      // If landing already happened (internal navigation), play immediately
+      if (typeof window !== "undefined" && (window as any).comet_landed) {
+        tl.play();
+      }
+
       window.addEventListener("landing-complete", onLanding);
       return () => window.removeEventListener("landing-complete", onLanding);
     }, [brandRef, navRef, registerRef]);

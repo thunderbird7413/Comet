@@ -1,6 +1,8 @@
 "use client";
 import LiquidTitle from "@/components/LiquidTitle";
 import AnimatedSubtitle from "./AnimatedSubtitle";
+import Link from "next/link";
+
 
 import { Canvas } from "@react-three/fiber";
 import EmeraldSmoke from "./EmeraldSmoke";
@@ -37,6 +39,12 @@ export default function Hero() {
 
   useEffect(() => {
     const onLanding = () => setStart(true);
+
+    // If landing already happened (internal navigation), start immediately
+    if (typeof window !== "undefined" && (window as any).comet_landed) {
+      setStart(true);
+    }
+
     window.addEventListener("landing-complete", onLanding);
     return () => window.removeEventListener("landing-complete", onLanding);
   }, []);
@@ -80,6 +88,34 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
+          className="hero-cta-container"
+          initial={{ opacity: 0, y: 20 }}
+          animate={start ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.4, duration: 0.7 }}
+        >
+          <Link href="/pricing" className="futuristic-btn">
+            <span className="btn-corner corner-tl"></span>
+            <span className="btn-corner corner-tr"></span>
+            <span className="btn-corner corner-bl"></span>
+            <span className="btn-corner corner-br"></span>
+            <span className="btn-glitch-plane"></span>
+            Book Your Slots
+            <svg
+              className="btn-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </Link>
+        </motion.div>
+
+        <motion.div
           className="hero-logos"
           initial={{ opacity: 0, y: 20 }}
           animate={start ? { opacity: 1, y: 0 } : {}}
@@ -102,5 +138,3 @@ export default function Hero() {
     </section>
   );
 }
-
-

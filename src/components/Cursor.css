@@ -2,7 +2,7 @@
 html,
 body,
 * {
-  cursor: none !important;
+  cursor: pointer;
 }
 
 .custom-cursor-inner {

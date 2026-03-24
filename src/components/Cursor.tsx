@@ -4,6 +4,7 @@ import gsap from "gsap";
 import "./Cursor.css";
 
 export default function Cursor() {
+  return null;
   const cursorRef = useRef<HTMLDivElement>(null);
   const followerRef = useRef<HTMLDivElement>(null);
   const [enabled, setEnabled] = useState(false);

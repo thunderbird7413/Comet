@@ -111,8 +111,10 @@ export default function CosmicGallery() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    if (isMobile) return null;
+
     return (
-        <section className={`cosmic-gallery-section relative ${isMobile ? "mobile-view" : ""}`}>
+        <section className={`cosmic-gallery-section relative`}>
 
             {/* Central Text Content */}
             <div className={`cosmic-content z-10 ${isMobile ? "" : "pointer-events-none"}`}>

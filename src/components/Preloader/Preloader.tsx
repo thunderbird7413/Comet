@@ -33,6 +33,7 @@ export default function Preloader() {
       } else {
         // Fire immediately so Hero starts animating while preloader is still fading
         window.dispatchEvent(new Event("landing-complete"));
+        (window as any).comet_landed = true;
         document.body.style.overflow = "";
         setFading(true);
         setTimeout(() => {
