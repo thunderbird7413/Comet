@@ -1,5 +1,5 @@
 import React from "react";
-import { PricingDetails } from "./pricingTypes";
+import { PricingDetails } from "./PricingTypes";
 import styles from "./Pricing.module.css";
 import Link from "next/link";
 

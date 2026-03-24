@@ -1,6 +1,6 @@
 "use client";
 import PricingCard from "@/components/Pricing/PricingCard";
-import { PricingDetails } from "@/components/Pricing/pricingTypes";
+import { PricingDetails } from "@/components/Pricing/PricingTypes";
 import styles from "../../components/Pricing/Pricing.module.css";
 import Navbar from "@/components/Navbar";
 
