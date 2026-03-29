@@ -26,7 +26,7 @@ export default function Home() {
         <Zoom />
       </div> */}
       <Workshops />
-      <EventReveal />
+      <EventReveal limit={6} />
       <CosmicGallery />
       <CosmicVideos />
       <PastSpeakers />

@@ -1,30 +1,11 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { workshops } from "@/utils/workshops";
 import "./Workshops.css";
 
-const cardData = [
-  {
-    title: "Project Management",
-    desc: "Learn planning, execution, and real-world project handling with structured industry insights.",
-    img: "/nworkshop/project.jpg",
-  },
-  {
-    title: "Blockchain",
-    desc: "Explore blockchain basics, smart contracts, decentralized systems, and their real-world applications.",
-    img: "/nworkshop/blockchain.jpg",
-  },
-  {
-    title: "Financial Taxation",
-    desc: "Understand taxation fundamentals, regulations, and practical financial decision-making strategies.",
-    img: "/nworkshop/finance.jpg",
-  },
-  {
-    title: "Improv Workshop",
-    desc: "Boost creativity, spontaneity, and communication skills through dynamic improvisation activities.",
-    img: "/nworkshop/improv.jpg",
-  },
-];
+// Using the first 3 workshops for the homepage as requested
+const cardData = workshops.slice(0, 3);
 
 export default function Workshops() {
   const [activeIndex, setActiveIndex] = useState(0);

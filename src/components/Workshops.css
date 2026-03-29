@@ -123,7 +123,6 @@
 .ws-cards-row {
   display: flex;
   align-items: center;
-  flex: 1;
   gap: 0;
 }
 
