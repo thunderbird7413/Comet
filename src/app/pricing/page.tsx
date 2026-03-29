@@ -9,7 +9,7 @@ const page = () => {
     {
       name: "Comet Essential Pass",
       mostPopular: false,
-      link: "/notAvailable",
+      link: "https://forms.easebuzz.in/sign-up/COMETewXAZ/comet_essential_paymentlink/?inst_name=COMETewXAZ&form_name=comet_essential_paymentlink&jsonData=1",
       features: [
         {
           feature: "Atendee Kit",
@@ -60,7 +60,7 @@ const page = () => {
     {
       name: "Comet Standard Pass",
       mostPopular: true,
-      link: "/notAvailable",
+      link: "https://forms.easebuzz.in/register/COMETewXAZ/comet_standard_paymentlink",
       features: [
         {
           feature: "Atendee Kit",
