@@ -33,7 +33,7 @@ const PricingCard = ({
           );
         })}
       </div>
-      {isPopular && <span className={styles.popular__bagde}>Most Popular</span>}
+      {isPopular && <span className={styles.popular__bagde}>Early Bird Offer</span>}
     </div>
   );
 };

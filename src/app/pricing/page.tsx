@@ -58,6 +58,57 @@ const page = () => {
       ],
     },
     {
+      name: "Comet Gold Pass",
+      mostPopular: true,
+      link: "https://forms.easebuzz.in/register/COMETewXAZ/comet_2026_paymentlink",
+      features: [
+        {
+          feature: "Atendee Kit",
+          isTrue: true,
+        },
+        {
+          feature: "All guest lectures",
+          isTrue: true,
+        },
+        {
+          feature: "All flagship events",
+          isTrue: true,
+        },
+        {
+          feature: "Movie Night",
+          isTrue: true,
+        },
+        {
+          feature: "DJ night",
+          isTrue: true,
+        },
+        {
+          feature: "Carnival Entry",
+          isTrue: true,
+        },
+        {
+          feature: "Fun Games",
+          isTrue: true,
+        },
+        {
+          feature: "Refreshment at Arrival",
+          isTrue: true,
+        },
+        {
+          feature: "Standup",
+          isTrue: true,
+        },
+        {
+          feature: "Accomodation",
+          isTrue: true,
+        },
+        {
+          feature: "6 Food Coupons",
+          isTrue: true,
+        },
+      ],
+    },
+    {
       name: "Comet Standard Pass",
       mostPopular: true,
       link: "https://forms.easebuzz.in/register/COMETewXAZ/comet_standard_paymentlink",
@@ -107,58 +158,7 @@ const page = () => {
           isTrue: false,
         },
       ],
-    },
-    {
-      name: "Comet Gold Pass",
-      mostPopular: false,
-      link: "https://forms.easebuzz.in/register/COMETewXAZ/comet_2026_paymentlink",
-      features: [
-        {
-          feature: "Atendee Kit",
-          isTrue: true,
-        },
-        {
-          feature: "All guest lectures",
-          isTrue: true,
-        },
-        {
-          feature: "All flagship events",
-          isTrue: true,
-        },
-        {
-          feature: "Movie Night",
-          isTrue: true,
-        },
-        {
-          feature: "DJ night",
-          isTrue: true,
-        },
-        {
-          feature: "Carnival Entry",
-          isTrue: true,
-        },
-        {
-          feature: "Fun Games",
-          isTrue: true,
-        },
-        {
-          feature: "Refreshment at Arrival",
-          isTrue: true,
-        },
-        {
-          feature: "Standup",
-          isTrue: true,
-        },
-        {
-          feature: "Accomodation",
-          isTrue: true,
-        },
-        {
-          feature: "6 Food Coupons",
-          isTrue: true,
-        },
-      ],
-    },
+    }
   ];
 
   return (
