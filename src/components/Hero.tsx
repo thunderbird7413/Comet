@@ -2,6 +2,7 @@
 import LiquidTitle from "@/components/LiquidTitle";
 import AnimatedSubtitle from "./AnimatedSubtitle";
 import Link from "next/link";
+import { useAuth } from "./AuthContext";
 
 
 import { Canvas } from "@react-three/fiber";
@@ -35,6 +36,7 @@ function useCountdown() {
 
 export default function Hero() {
   const [start, setStart] = useState(false);
+  const { user, loading } = useAuth();
   const countdown = useCountdown();
 
   useEffect(() => {
@@ -93,26 +95,28 @@ export default function Hero() {
           animate={start ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.4, duration: 0.7 }}
         >
-          <Link href="/pricing" className="futuristic-btn">
-            <span className="btn-corner corner-tl"></span>
-            <span className="btn-corner corner-tr"></span>
-            <span className="btn-corner corner-bl"></span>
-            <span className="btn-corner corner-br"></span>
-            <span className="btn-glitch-plane"></span>
-            Book Your Slots
-            <svg
-              className="btn-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </Link>
+          {!loading && user && (
+            <Link href="/pricing" className="futuristic-btn">
+              <span className="btn-corner corner-tl"></span>
+              <span className="btn-corner corner-tr"></span>
+              <span className="btn-corner corner-bl"></span>
+              <span className="btn-corner corner-br"></span>
+              <span className="btn-glitch-plane"></span>
+              Book Your Slots
+              <svg
+                className="btn-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </Link>
+          )}
         </motion.div>
 
         <motion.div

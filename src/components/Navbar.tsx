@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useAuth } from "./AuthContext";
 import AuthModal from "./AuthModal";
+import Link from "next/link";
 import { LogOut, ChevronDown } from "lucide-react";
 
 export default function Navbar() {
@@ -78,16 +79,18 @@ export default function Navbar() {
     <>
       <header className="header container1">
         <div className="brand" ref={brandRef}>
-          CDC, <strong className="cursor-hover">IIT ROORKEE</strong>
+          <Link href="/">
+            CDC, <strong className="cursor-hover">IIT ROORKEE</strong>
+          </Link>
         </div>
 
         <div className="nav-wrap" ref={navRef}>
           <nav className="nav desktop-nav">
-            <a href="/">HOME</a>
-            <a href="/workshops">WORKSHOPS</a>
-            <a href="#events">EVENTS</a>
-            <a href="/members">MEMBERS</a>
-            <a href="#contact">CONTACT</a>
+            <Link href="/">HOME</Link>
+            <Link href="/workshops">WORKSHOPS</Link>
+            <Link href="/events">EVENTS</Link>
+            <Link href="/members">MEMBERS</Link>
+            <Link href="/contact">CONTACT</Link>
           </nav>
         </div>
 
@@ -143,11 +146,11 @@ export default function Navbar() {
 
         <div className={`mobile-menu ${open ? "open" : ""}`}>
           <nav>
-            <a href="#home" onClick={handleNavClick}>HOME</a>
-            <a href="/workshops" onClick={handleNavClick}>WORKSHOPS</a>
-            <a href="#events" onClick={handleNavClick}>EVENTS</a>
-            <a href="/members" onClick={handleNavClick}>MEMBERS</a>
-            <a href="#events" onClick={handleNavClick}>CONTACT</a>
+            <Link href="/" onClick={handleNavClick}>HOME</Link>
+            <Link href="/workshops" onClick={handleNavClick}>WORKSHOPS</Link>
+            <Link href="/events" onClick={handleNavClick}>EVENTS</Link>
+            <Link href="/members" onClick={handleNavClick}>MEMBERS</Link>
+            <Link href="/contact" onClick={handleNavClick}>CONTACT</Link>
           </nav>
 
           {user ? (

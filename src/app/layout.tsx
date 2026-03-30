@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
-import Cursor from "@/components/Cursor";
 import Preloader from "@/components/Preloader/Preloader";
 import SmoothScroll from "@/components/SmoothScroll";
 import HeroStars2D from "@/components/HeroStars2D";
@@ -128,7 +127,6 @@ export default function RootLayout({
             />
           </noscript>
           <Preloader />
-          <Cursor />
           <div className="app-shell">
             <SmoothScroll>
               {children}

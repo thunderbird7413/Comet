@@ -18,7 +18,7 @@ export const workshops: Workshop[] = [
     },
     {
         id: 2,
-        title: "Data Science & AI",
+        title: "Data Science",
         tagline: "Unlock the power of data-driven insights.",
         desc: "Explore machine learning algorithms, data visualization, and predictive modeling.",
         img: "/workshop/DataScience.png",
