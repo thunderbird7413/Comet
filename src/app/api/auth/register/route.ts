@@ -10,12 +10,20 @@ export async function POST(req: NextRequest) {
     try {
         await connectDB();
 
-        const { name, email, password, referralCode } = await req.json();
+        const { name, email, phone, password, referralCode } = await req.json();
+
 
         // Validate required fields
-        if (!name || !email || !password) {
+        if (!name || !email || !phone || !password) {
             return NextResponse.json(
-                { error: 'Name, email, and password are required.' },
+                { error: 'Name, email, phone, and password are required.' },
+                { status: 400 }
+            );
+        }
+        // Basic phone validation (10-15 digits)
+        if (!/^\d{10,15}$/.test(phone)) {
+            return NextResponse.json(
+                { error: 'Please enter a valid phone number (10-15 digits).' },
                 { status: 400 }
             );
         }
@@ -44,6 +52,7 @@ export async function POST(req: NextRequest) {
         const user = await User.create({
             name,
             email: email.toLowerCase(),
+            phone,
             password: hashedPassword,
             referralCode: referralCode || '',
         });
@@ -62,6 +71,7 @@ export async function POST(req: NextRequest) {
                 id: user._id.toString(),
                 name: user.name,
                 email: user.email,
+                phone: user.phone,
                 referralCode: user.referralCode,
             },
         });

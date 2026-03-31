@@ -19,6 +19,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "register" }: 
     // Register form state
     const [regName, setRegName] = useState("");
     const [regEmail, setRegEmail] = useState("");
+    const [regPhone, setRegPhone] = useState("");
     const [regPassword, setRegPassword] = useState("");
     const [regReferral, setRegReferral] = useState("");
     const [regShowPw, setRegShowPw] = useState(false);
@@ -61,8 +62,13 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "register" }: 
         e.preventDefault();
         setError(""); setSuccess("");
 
-        if (!regName.trim() || !regEmail.trim() || !regPassword.trim()) {
-            return setError("Name, email, and password are required.");
+
+        if (!regName.trim() || !regEmail.trim() || !regPhone.trim() || !regPassword.trim()) {
+            return setError("Name, email, phone, and password are required.");
+        }
+        // Basic phone validation (10-15 digits)
+        if (!/^\d{10,15}$/.test(regPhone.trim())) {
+            return setError("Please enter a valid phone number (10-15 digits).");
         }
         if (regPassword.length < 6) {
             return setError("Password must be at least 6 characters.");
@@ -76,6 +82,7 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "register" }: 
                 body: JSON.stringify({
                     name: regName.trim(),
                     email: regEmail.trim(),
+                    phone: regPhone.trim(),
                     password: regPassword,
                     referralCode: regReferral.trim(),
                 }),
@@ -217,6 +224,24 @@ export default function AuthModal({ isOpen, onClose, defaultTab = "register" }: 
                                                 value={regName}
                                                 onChange={(e) => setRegName(e.target.value)}
                                                 autoComplete="name"
+                                                disabled={loading}
+                                            />
+                                        </div>
+                                    </div>
+
+
+                                    {/* Phone */}
+                                    <div className="auth-field">
+                                        <label className="auth-label">Phone Number</label>
+                                        <div className="auth-input-wrap">
+                                            <input
+                                                className="auth-input"
+                                                type="tel"
+                                                placeholder="e.g. 9876543210"
+                                                value={regPhone}
+                                                onChange={(e) => setRegPhone(e.target.value.replace(/[^\d]/g, ""))}
+                                                autoComplete="tel"
+                                                maxLength={15}
                                                 disabled={loading}
                                             />
                                         </div>
