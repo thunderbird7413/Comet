@@ -39,7 +39,7 @@ export const events: Event[] = [
         image: "/events/mockup.jpeg",
         tagline: "Design fast. Prototype smart. Build impactful solutions.",
         detailedDesc: `MockUp is a 36-hour design hackathon that challenges participants to prototype innovative solutions within a short timeframe. Teams receive problem statements and must conceptualize, design, and submit impactful prototypes.\n\nIt enhances rapid ideation, UI/UX thinking, and teamwork, while offering exciting rewards and recognition. The event prepares participants for real-world design challenges, pushing them to think fast and work collaboratively.`
-    },,
+    },
     {
         id: 5,
         title: "AlgoVision",
