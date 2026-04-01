@@ -110,7 +110,7 @@ const page = () => {
     },
     {
       name: "Comet Standard Pass",
-      mostPopular: true,
+      mostPopular: false,
       link: "https://forms.easebuzz.in/register/COMETewXAZ/comet_standard_paymentlink",
       features: [
         {
