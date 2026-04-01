@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import "./Preloader.css";
 
 export default function Preloader() {
-  const START_PROGRESS = 33;
+  const START_PROGRESS = 75;
   const [progress, setProgress] = useState(START_PROGRESS);
   const [fading, setFading] = useState(false);
   const [done, setDone] = useState(false);
@@ -19,7 +19,7 @@ export default function Preloader() {
 
   // Smooth progress animation
   useEffect(() => {
-    const DURATION = 2600;
+    const DURATION = 3000;
     let start: number | null = null;
     let raf: number;
 
